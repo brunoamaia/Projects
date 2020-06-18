@@ -1,0 +1,97 @@
+.corpo {
+    background-color:  #009EB2;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 20px;
+    height: auto;
+    margin: 2em auto;
+    text-align: center;
+    width: 90%;
+}
+
+@media (min-width: 750px){
+    .corpo{
+        width: 700px;
+    }
+}
+
+#display {
+    background-color: white;
+    color: #000;
+    padding-right: 0.1em;
+    padding-top: 0.2em;
+    position: relative;
+    top: 1em;
+    height: 2.5em;
+    margin: 1.2em 0.2em;
+    margin-bottom: 0;
+    font-size: 1.2em;
+    text-align: end;
+}
+
+#history {
+    font-size: 0.9em;
+    background-color: white;
+    color: #000;
+    padding-right: 0.1em;
+    padding-top: 0.3em;
+    position: relative;
+    top: 0;
+    height: 1.5em;
+    margin: 1em 0.3em;
+    margin-top: 0;
+    text-align: end;
+}
+
+.line {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    background-color: #3D4F4E;
+    color: #fff;
+    margin: 0.3em;
+    width: 4.7em;
+}
+
+footer {
+    color:  white;
+    font: 500 20px Roboto, sans-srif;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Botoes da Calculadora para telas pequenas */
+@media (max-width: 450px) {
+    button {
+        margin: 0.3em;
+        width: 3.8em;
+    }
+}
+@media (max-width: 400px) {
+    button {
+        margin: 0.3em;
+        width: 3em;
+    }
+}
+@media (max-width: 350px) {
+    button {
+        margin: 0.3em;
+        width: 2.5em;
+    }
+}
+
+.projeto ul {
+    list-style: circle;
+    padding-left: 5em;
+}
+
+/* Configurações para telas grandes */
+@media (min-width: 750px) {
+    button {
+        margin: 0.3em;
+        width: 6em;
+    }
+}
