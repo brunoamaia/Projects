@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Básica</title>
+    <link rel="stylesheet" href="../../../../global.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="content">
+            <!--                            Utilizar quando tiver Alguma logo -->
+            <div class="logo" style="float: left;">     <!-- Jogar o Home par a esquerda -->
+                <a href="../../../../index.html"><img src="../../../../src/icons/home.svg" alt="Voltar para a página inicial"> </a>      <!-- <i class="fas fa-book-reader"></i> -->
+            </div>
+
+            <a href="" class="nav-toggle" style="float: right;" onclick="openmenu()">    <!-- Jogar o menu para a direita -->
+                <img src="../../../../src/icons/menu.svg" alt="">                                        <!-- <i class="fas fa-bars"> </i> -->
+            </a>
+
+            <nav class="nav">
+                <p>
+                    <span class="nav-close" style="float: right;" onclick="closenmenu()">
+                        <i class="fas fa-bars"><img src="../../../../src/icons/x.svg" alt=""></i>
+                    </span>
+                </p>
+                <ul>
+                    <li> <a href="../../../../index.html">Home</a> </li>
+                    <li> <a href="../../../aboutme/index.html">Autor</a> </li>
+                    <li> <a href="../../../examples/index.html">Exemplos</a> </li>
+                    <li> <a href="../../index.html" class="current">Projetos</a> </li>
+                    <li> <a href="../../../reposit/index.html"> Repositório </a> </li>
+                </ul>
+            </nav>
+
+            <nav class="social">
+                <ul>
+                    <li> <a href="https://www.linkedin.com/in/brunoamaia94/"> <img src="../../../../src/icons/linkedin.svg" alt=""> </a></li>
+                    <li> <a href="https://www.facebook.com/brunoamaia94"> <img src="../../../../src/icons/facebook.svg" alt=""> </a></li>
+                    <li> <a href="./index.html"> <img src="../../../../src/icons/instagram.svg" alt=""> </a></li>
+                    <li> <a href="./index.html"> <img src="../../../../src/icons/twitter.svg" alt=""> </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="projeto">
+        <header>
+            <h1>Calculadora Básica</h1>
+        </header>
+        
+        <p>Calculadora básica utilizando apenas HTML5, CSS3 e JavaScript. 
+            Primeiro está sendo ajustado o layout da calculadora (para treino do CSS). 
+            Posteriomente serão adicionadas as funções (via JavaScript)</p>
+        
+        <div class="corpo">
+            <p> <div id="display"></div></p>
+            <p> <div id="history"></div></p>
+
+            <div class="line">
+                <div> <button onclick="clearelement()" alt="Botão com a função de limpar o elemento digitado">CE</button> </div>
+                <div> <button onclick="clearall()" alt="Botão com a função de limpar todos os dados">C</button> </div>
+                <div> <button onclick="percent()" alt="Botão com a função de porcentagem">%</button> </div>
+                <div> <button onclick="soma()" alt="Botão com a função de soma">+</button> </div>
+            </div>
+            <div class="line">
+                <div> <button onclick="seven()" alt="Botão com a função de digitar o valor sete">7</button> </div>
+                <div> <button onclick="eight()" alt="Botão com a função de digitar o valor oito">8</button> </div>
+                <div> <button onclick="nine()" alt="Botão com a função de digitar o valor nove">9</button> </div>
+                <div> <button onclick="subtraction()" alt="Botão com a função de subtração">-</button> </div>
+            </div>
+            <div class="line">
+                <div> <button onclick="four()" alt="Botão com a função de digitar o valor quatro">4</button> </div>
+                <div> <button onclick="five()" alt="Botão com a função de digitar o valor cinco">5</button> </div>
+                <div> <button onclick="six()" alt="Botão com a função de digitar o valor seis">6</button> </div>
+                <div> <button onclick="multiplication()" alt="Botão com a função de miltiplicação">x</button> </div>
+            </div>
+            <div class="line">
+                <div> <button onclick="one()" alt="Botão com a função de digitar o valor um">1</button> </div>
+                <div> <button onclick="two()" alt="Botão com a função de digitar o valor dois">2</button> </div>
+                <div> <button onclick="three()" alt="Botão com a função de digitar o valor três">3</button> </div>
+                <div> <button onclick="division()" alt="Botão com a função de divisão">/</button> </div>
+            </div>
+            <div class="line">
+                <div> <button onclick="zero()" alt="Botão com a função de digitar o valor zero">0</button> </div>
+                <div> <button onclick="signal()" alt="Botão com a função de altenar o valor entre positivo e negativo">+/-</button> </div>
+                <div> <button onclick="point()" alt="Botão com a função de adicionar um ponto, com a função de ter valores decimais">,</button> </div>
+                <div> <button onclick="resulte()" alt="Botão com a função de apreesentar o resultado das operações informadas">=</button> </div>
+            </div>
+
+        </div>
+
+        <p> Etapas a serem implementadas:
+            <ul>
+                <li>Porcentagem (%)</li>
+                <li>Ajuste do texto para não extrapolar a área do display</li>
+                <li>Estruturar o Programa em POO (Gosto de trabalhar com POO)</li>
+                    <ul>
+                        <li>As funções já estão quase na estrutura final, falta apenas dominar a importação das funções e ajustar o que for necessário</li>
+                    </ul>
+            </ul>
+            
+        </p>
+    </section>
+    
+
+    <footer>
+        &copy; Criado em maio de 2020
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!-- Usar Jquery para adicionar funcionalidades ao JavaScript  -->
+    <script src="../../../../script.js"></script> <!-- funcionamento do menu -->
+    <script src="funcoes.js"></script>
+</body>
+</html>
