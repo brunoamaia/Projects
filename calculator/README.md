@@ -1,5 +1,5 @@
 # Calculadora
- Prjeto de uma calculadora Utilizando: <br>
+ Projeto de uma calculadora utilizando: <br>
  <ul>
     <li>HTML e CSS - para criar o formato da calculadora em um site </li>
     <li>JavaScript - para realizar a interação com a calculadora e suas operações</li>
