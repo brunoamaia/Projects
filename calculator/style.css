@@ -56,10 +56,13 @@ body {
 
 button {
     background-color: #3D4F4E;
+    border: 0;
+    border-radius: 10px;
     color: #fff;
+    font-size: 1.7em;
     margin: 0.3em;
-    border-radius: 5px;
-    width: 4.7em;
+    padding: 0.8em;
+    width: 5em;
 }
 
 footer {
@@ -69,22 +72,27 @@ footer {
     font-style: italic;
 }
 
+
+
 /* Botoes da Calculadora para telas pequenas */
-@media (max-width: 450px) {
+@media (max-width: 750px) {
     button {
-        margin: 0.3em;
-        width: 3.8em;
+        font-size: 1.7em;
+        padding: 0.5em;
+        width: 3.3em;
     }
 }
-@media (max-width: 400px) {
+@media (max-width: 480px){
     button {
-        margin: 0.3em;
+        font-size: 1.3em;
+        padding: 0.4em;
         width: 3em;
     }
 }
 @media (max-width: 350px) {
     button {
-        margin: 0.3em;
+        font-size: 1em;
+        padding: 0.2;
         width: 2.5em;
     }
 }
@@ -92,12 +100,4 @@ footer {
 .projeto ul {
     list-style: circle;
     padding-left: 5em;
-}
-
-/* Configurações para telas grandes */
-@media (min-width: 750px) {
-    button {
-        margin: 0.3em;
-        width: 6em;
-    }
 }
