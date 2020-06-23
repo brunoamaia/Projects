@@ -61,13 +61,13 @@ function saida () {             // Control of the information that will be shown
     }
 
     
-    info.innerHTML = `Tamanho do result = ${n.length} / ${result}`
-    /*if (n > 4) {    // Inserir setas para valores muito grandes
-        arrow.innerHTML = '<div id="la"> <img src="./src/chevron-left.svg" alt="to move for left"> </div> <br>'
-        arrow.innerHTML += '<div id="ra"> <img src="./src/chevron-right.svg" alt="to move for right"> </div>'
+    /*info.innerHTML = `Tamanho do result = ${n.length} / ${result}`*/
+    if (n > 4) {    // Inserir setas para valores muito grandes
+        arrow.innerHTML = '<button onclick="movlef()"> <img src="./src/chevron-left.svg" alt="to move for left"> </button></div> <br>'
+        arrow.innerHTML += '<button onclick="movrig()"> <img src="./src/chevron-right.svg" alt="to move for right"> </button></div>'
     } else {
         arrow.innerHTML = ''
-    }*/
+    }
 
     notnumber=0
     lista()

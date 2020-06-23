@@ -1,3 +1,10 @@
+/* Soft Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: gray;
     color: midnightblue;
@@ -18,26 +25,27 @@ body {
     }
 }
 
+
+#exit {
+    display: block;
+    margin: 3em 1em 1em 1em;
+    background-color: chartreuse;
+    align-items: center;
+}
+
 #display {
     background-color: white;
     color: #000;
-    margin: 0 0.8em;
-    padding: 0.2em 0.1em;
-    position: relative;
-    top: 0;
     height: 2.5em;
     font-size: 1.2em;
     text-align: end;
 }
 
 #history {
-    font-size: 0.9em;
+    font-size: 1em;
     background-color: white;
     color: #000;
-    padding: 0.2em 0.1em;
-    position: relative;
     height: 1.8em;
-    margin: 0 0.8em 1em 0.8em;
     text-align: end;
 }
 
@@ -66,12 +74,20 @@ footer {
 
 #arrow {
     display: flex;
-    padding-top: 0.2em;
+    justify-content: space-between;
+    margin: 1em -2em -2em -2em;
     padding: 0;
-    margin: 0;
-    top: 1em;
 }
 
+#arrow button {
+    padding: 0.1em;
+    width: auto;
+    background-color: #000;
+}
+
+#la {
+    flex-direction: column;
+}
 
 /* Botoes da Calculadora para telas pequenas */
 @media (max-width: 750px) {
@@ -99,4 +115,8 @@ footer {
 .projeto ul {
     list-style: circle;
     padding-left: 5em;
+}
+
+#informations {
+    color: yellow;
 }
