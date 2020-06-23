@@ -11,7 +11,8 @@ let ac = 0      // Operator insertion - whether it will be after or before the n
 let notnumber = 0   // Information about operations : 0- normal, 1- without value,  2- not running!, 3 - result
 let newcount = 0 // first number is negative
 let w = window.innerWidth;      // Width os window
-var arrow = window.document.getElementById('arrow')
+var arrowu = window.document.getElementById('arrowup')
+var arrowd = window.document.getElementById('arrowdown')
 var info = window.document.getElementById('informations')
 
 
@@ -62,11 +63,11 @@ function saida () {             // Control of the information that will be shown
 
     
     /*info.innerHTML = `Tamanho do result = ${n.length} / ${result}`*/
-    if (n > 4) {    // Inserir setas para valores muito grandes
-        arrow.innerHTML = '<button onclick="movlef()"> <img src="./src/chevron-left.svg" alt="to move for left"> </button></div> <br>'
-        arrow.innerHTML += '<button onclick="movrig()"> <img src="./src/chevron-right.svg" alt="to move for right"> </button></div>'
+    if (n.length > 4) {    // Inserir setas para valores muito grandes
+        arrowu.innerHTML = '<button onclick="movlef()"> <img src="./src/chevron-left.svg" alt="to move for left"> </button></div> <br>'
+        arrowu.innerHTML += '<button onclick="movrig()"> <img src="./src/chevron-right.svg" alt="to move for right"> </button></div>'
     } else {
-        arrow.innerHTML = ''
+        arrowu.innerHTML = ''
     }
 
     notnumber=0
@@ -89,6 +90,16 @@ function lista() {              // Historic of the operations
             resp += values[i] + operation[i]
         }
     }
+
+    info.innerHTML = `Saida do historico = ${resp.length}`
+    let g = String(resp)
+    if (g.length > 20 ) {
+        arrowd.innerHTML = '<button onclick="movlef()"> <img src="./src/chevron-left.svg" alt="to move for left"> </button></div> <br>'
+        arrowd.innerHTML += '<button onclick="movrig()"> <img src="./src/chevron-right.svg" alt="to move for right"> </button></div>'
+    } else { 
+        arrowd.innerHTML = ''
+     }
+
     histor.innerHTML = `${resp}`
 }
 

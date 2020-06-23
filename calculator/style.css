@@ -8,8 +8,12 @@
 body {
     background-color: gray;
     color: midnightblue;
+    max-width: 800px;
+    margin: 0 auto;
 }
-
+ p {
+     padding: 1em 0;
+ }
 .corpo {
     background-color:  #009EB2;
     border-radius: 20px;
@@ -28,7 +32,7 @@ body {
 
 #exit {
     display: block;
-    margin: 3em 1em 1em 1em;
+    margin: 1.5em 1em 1em 1em;
     background-color: chartreuse;
     align-items: center;
 }
@@ -72,21 +76,32 @@ footer {
     font-style: italic;
 }
 
-#arrow {
+#arrowup {
     display: flex;
     justify-content: space-between;
-    margin: 1em -2em -2em -2em;
+    margin: 0em -2em;
     padding: 0;
 }
 
-#arrow button {
+#arrowup button {
     padding: 0.1em;
     width: auto;
     background-color: #000;
+    margin-bottom: -2em;
 }
 
-#la {
-    flex-direction: column;
+#arrowdown {
+    display: flex;
+    justify-content: space-between;
+    margin: 0em -2em;
+    padding: 0;
+}
+
+#arrowdown button {
+    padding: 0.1em;
+    width: auto;
+    background-color: #000;
+    margin-top: -2em;
 }
 
 /* Botoes da Calculadora para telas pequenas */
@@ -119,4 +134,5 @@ footer {
 
 #informations {
     color: yellow;
+    margin-top: 1em;
 }
