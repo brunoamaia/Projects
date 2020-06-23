@@ -5,12 +5,9 @@ body {
 
 .corpo {
     background-color:  #009EB2;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
     border-radius: 20px;
     height: auto;
-    margin: 2em auto;
+    margin: 0 auto;
     text-align: center;
     width: 90%;
 }
@@ -24,13 +21,11 @@ body {
 #display {
     background-color: white;
     color: #000;
-    padding-right: 0.1em;
-    padding-top: 0.2em;
+    margin: 0 0.8em;
+    padding: 0.2em 0.1em;
     position: relative;
-    top: 1em;
+    top: 0;
     height: 2.5em;
-    margin: 1.2em 0.2em;
-    margin-bottom: 0;
     font-size: 1.2em;
     text-align: end;
 }
@@ -39,13 +34,10 @@ body {
     font-size: 0.9em;
     background-color: white;
     color: #000;
-    padding-right: 0.1em;
-    padding-top: 0.3em;
+    padding: 0.2em 0.1em;
     position: relative;
-    top: 0;
-    height: 1.5em;
-    margin: 1em 0.3em;
-    margin-top: 0;
+    height: 1.8em;
+    margin: 0 0.8em 1em 0.8em;
     text-align: end;
 }
 
@@ -72,6 +64,13 @@ footer {
     font-style: italic;
 }
 
+#arrow {
+    display: flex;
+    padding-top: 0.2em;
+    padding: 0;
+    margin: 0;
+    top: 1em;
+}
 
 
 /* Botoes da Calculadora para telas pequenas */
