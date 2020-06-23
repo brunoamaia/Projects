@@ -10,6 +10,9 @@ let op = ''     // Operation calling - sum, subtraction, division, multiplicatio
 let ac = 0      // Operator insertion - whether it will be after or before the number
 let notnumber = 0   // Information about operations : 0- normal, 1- without value,  2- not running!, 3 - result
 let newcount = 0 // first number is negative
+let w = window.innerWidth;      // Width os window
+var arrow = window.document.getElementById('arrow')
+var info = window.document.getElementById('informations')
 
 
 // ##################################  Funções gerais
@@ -44,7 +47,9 @@ function validar_numero () {    // Check that a number has been entered
     }
 }
 
-function saida () {             // Control of the information that will be shown 
+function saida () {             // Control of the information that will be shown
+    let n = String(result)
+    
     if (notnumber == 1) {
         display.innerHTML = 'Insira um valor!'
     } else if (notnumber == 2 ){
@@ -54,6 +59,16 @@ function saida () {             // Control of the information that will be shown
     } else {
         display.innerHTML = `${txt}`
     }
+
+    
+    info.innerHTML = `Tamanho do result = ${n.length} / ${result}`
+    /*if (n > 4) {    // Inserir setas para valores muito grandes
+        arrow.innerHTML = '<div id="la"> <img src="./src/chevron-left.svg" alt="to move for left"> </div> <br>'
+        arrow.innerHTML += '<div id="ra"> <img src="./src/chevron-right.svg" alt="to move for right"> </div>'
+    } else {
+        arrow.innerHTML = ''
+    }*/
+
     notnumber=0
     lista()
 }
