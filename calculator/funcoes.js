@@ -60,15 +60,14 @@ function saida () {             // Control of the information that will be shown
     } else {
         display.innerHTML = `${txt}`
     }
-
     
-    /*info.innerHTML = `Tamanho do result = ${n.length} / ${result}`*/
-    if (n.length > 4) {    // Inserir setas para valores muito grandes
+    // // Inserir setas para valores muito grandes
+    /*if (n.length > 4) {    
         arrowu.innerHTML = '<button onclick="movlef()"> <img src="./src/chevron-left.svg" alt="to move for left"> </button></div> <br>'
         arrowu.innerHTML += '<button onclick="movrig()"> <img src="./src/chevron-right.svg" alt="to move for right"> </button></div>'
     } else {
         arrowu.innerHTML = ''
-    }
+    } */
 
     notnumber=0
     lista()
@@ -91,14 +90,15 @@ function lista() {              // Historic of the operations
         }
     }
 
-    info.innerHTML = `Saida do historico = ${resp.length}`
+    // // Inserir setas para quano o histórico estiver muito grande
+    /*//info.innerHTML = `Saida do historico = ${resp.length}`
     let g = String(resp)
     if (g.length > 20 ) {
         arrowd.innerHTML = '<button onclick="movlef()"> <img src="./src/chevron-left.svg" alt="to move for left"> </button></div> <br>'
         arrowd.innerHTML += '<button onclick="movrig()"> <img src="./src/chevron-right.svg" alt="to move for right"> </button></div>'
     } else { 
         arrowd.innerHTML = ''
-     }
+    }*/
 
     histor.innerHTML = `${resp}`
 }
