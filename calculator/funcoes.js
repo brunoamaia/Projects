@@ -63,8 +63,8 @@ function saida () {             // Control of the information that will be shown
     
     // // Inserir setas para valores muito grandes
     /*if (n.length > 4) {    
-        arrowu.innerHTML = '<button onclick="movlef()"> <img src="./src/chevron-left.svg" alt="to move for left"> </button></div> <br>'
-        arrowu.innerHTML += '<button onclick="movrig()"> <img src="./src/chevron-right.svg" alt="to move for right"> </button></div>'
+        arrowu.innerHTML = '<button onclick="movlefup()"> <img src="./src/chevron-left.svg" alt="to move for left"> </button></div> <br>'
+        arrowu.innerHTML += '<button onclick="movrigup()"> <img src="./src/chevron-right.svg" alt="to move for right"> </button></div>'
     } else {
         arrowu.innerHTML = ''
     } */
@@ -94,8 +94,8 @@ function lista() {              // Historic of the operations
     /*//info.innerHTML = `Saida do historico = ${resp.length}`
     let g = String(resp)
     if (g.length > 20 ) {
-        arrowd.innerHTML = '<button onclick="movlef()"> <img src="./src/chevron-left.svg" alt="to move for left"> </button></div> <br>'
-        arrowd.innerHTML += '<button onclick="movrig()"> <img src="./src/chevron-right.svg" alt="to move for right"> </button></div>'
+        arrowd.innerHTML = '<button onclick="movlefdown()"> <img src="./src/chevron-left.svg" alt="to move for left"> </button></div> <br>'
+        arrowd.innerHTML += '<button onclick="movrigdown()"> <img src="./src/chevron-right.svg" alt="to move for right"> </button></div>'
     } else { 
         arrowd.innerHTML = ''
     }*/
