@@ -151,15 +151,9 @@ function calculator() {         // Calculate the result
     while (validador == 1) {
         let p_mult = oper.indexOf(' * ')       // realiza a multiplicação
         while (p_mult != -1) {
-            let a = Number(counts[p_mult])
-            let b = Number(counts[p_mult+1])
             counts[p_mult] = Number(counts[p_mult]) * Number(counts[p_mult+1])  
             counts.splice(p_mult+1, 1)      // Remove o segundo elemento da multiplicação
             oper.splice(p_mult, 1)     // Remove a multiplicação realizada
-
-            info.innerHTML += `<br> ${a} * ${b} = ${counts[p_mult]}`
-            info.innerHTML += `<br> Valores = ${counts}`
-            info.innerHTML += `<br> Operado = ${oper}`
 
             p_mult = oper.indexOf(' * ')
         }
@@ -170,26 +164,16 @@ function calculator() {         // Calculate the result
                 result = 'Not divide by 0!'
                 return notnumber = 3
             } else {
-                let a = Number(counts[p_div])
-                let b = Number(counts[p_div+1])
                 counts[p_div] = Number(counts[p_div]) / Number(counts[p_div + 1])
                 counts.splice(p_div + 1, 1)
                 oper.splice(p_div, 1)
-
-                info.innerHTML += `<br> ${a} / ${b} = ${counts[p_div]}`
-                info.innerHTML += `<br> Valores = ${counts}`
-                info.innerHTML += `<br> Operado = ${oper}`
             }
             p_div = oper.indexOf(' / ')
         }
 
         let p_sum = oper.indexOf(' + ')     // Realiza a Soma
         while (p_sum != -1) {
-            let a = Number(counts[p_sum])
-            let b = Number(counts[p_sum+1])
-            let c = ''
             if (p_sum > 0 ) {   // Verificar se o primeiro valor é negativo (o Segundo não precisa)
-                c = oper[p_sum-1]
                 if (oper[p_sum-1] == ' - ') {   // Se o 1º for neg, inverte seu sinal
                     let res = Number((counts[p_sum])*(-1) + counts[p_sum+1])
                     if (res < 0 ) { // se o resultado for negativo, altera o sinal no vetor de sinais
@@ -201,17 +185,10 @@ function calculator() {         // Calculate the result
                     }
                 }
             } else {
-                counts[p_sum] = Number(counts[p_sum]) + Number(counts[p_sum+1])  
+                counts[p_sum] = Number(counts[p_sum] - counts[p_sum+1])  
             }
-            
-            info.innerHTML += `<br><br> N1 = ${c}${a}; N2 = ${b} =>  Resultado = ${counts[p_sum]} \n Oper = ${oper}  `
-            
             counts.splice(p_sum+1, 1)
             oper.splice(p_sum, 1)
-
-            info.innerHTML += `<br> ${a} + ${b} = ${counts[p_sum]}`
-            info.innerHTML += `<br> Valores = ${counts}`
-            info.innerHTML += `<br> Operado = ${oper}`
 
             p_sum = oper.indexOf(' + ')
         }
@@ -219,16 +196,23 @@ function calculator() {         // Calculate the result
 
         let p_sub = oper.indexOf(' - ')     // Realiza a subtração
         while (p_sub != -1) {
-            let a = Number(counts[p_sub])
-            let b = Number(counts[p_sub+1])
-            counts[p_sub] = Number(counts[p_sub]) - Number(counts[p_sub+1])  
+            if (p_sub > 0) {    // Verificar se o primeiro valor é negativo (o Segundo não precisa)
+                if (oper[p_sub-1] == ' - ') {   // Se o 1º for neg, inverte seu sinal
+                    let res = Number((counts[p_sub])*(-1) - counts[p_sub+1])
+                    if (res < 0 ) { // se o resultado for negativo, altera o sinal no vetor de sinais
+                        counts[p_sub] = res*(-1)
+                        oper[p_sub-1] = ' - '
+                    } else {
+                        counts[p_sub] = res
+                        oper[p_sub-1] = ' + '
+                    }
+                }
+            } else {
+                counts[p_sub] = Number(counts[p_sub] - counts[p_sub+1])  
+            }
             counts.splice(p_sub+1, 1)
             oper.splice(p_sub, 1)
             
-            info.innerHTML += `<br> ${a} - ${b} = ${counts[p_sub]}`
-            info.innerHTML += `<br> Valores = ${counts}`
-            info.innerHTML += `<br> Operado = ${oper}`
-
             p_sub = oper.indexOf(' - ')
         }
         
