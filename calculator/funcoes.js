@@ -132,6 +132,13 @@ function operadores(op, ac) {   // Insertion of the operators in the right place
         } else {
             operation[pos_op-1] = ' * '
         }
+    } else if (op == 'percent')  {
+        if (ac != '-1') {
+            operation[pos_op] = '% '
+            pos_op += 1
+        } else {
+            operation[pos_op-1] = '% '
+        }
     }
 } 
 
@@ -277,8 +284,17 @@ function multiplication() {
 }
 
 function percent() {
-    notnumber = 2
+    let val = validar_numero()
+    if (val == true) {                  //  Se o número for válido, insere o operador
+        operadores('percent', 1)
+    } else {
+        if (pos_op != 0) {          // Caso seja o primeiro elemento, adiciona o operador
+            operadores('percent', -1)
+        }
+    }
     saida()
+    // notnumber = 2 //Error - Not Running
+    // saida()
 }
 
 function signal() {
