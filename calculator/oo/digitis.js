@@ -2,7 +2,8 @@
 // 
 
 
-export default function numb(cond) {
+const value = function (cond) {
+    console.log(`chamou modulo`);
     let val = Number(cond)
     switch (val) {
         case 0:
@@ -46,4 +47,8 @@ export default function numb(cond) {
             display.innerHTML = `${txt}`
             break;
     }
+}
+
+export  { 
+    value
 }

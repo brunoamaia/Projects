@@ -2,12 +2,12 @@
 // import function =>  import { func } from 'arq.js'
 
 // Import functions fromd modules
-import { number } from './OO/digitis.js'
-import { division, multiplication, percent, soma, subtraction } from "./OO/operatorsBasic.js"
+import { value } from './oo/digitis.js'
+/*import { division, multiplication, percent, soma, subtraction } from "./OO/operatorsBasic.js"
 import { point, resulte, signal } from './OO/operatorsSecond.js'
 import { clearAll, clearElement } from './OO/clear.js';
-import { validar_numero } from './OO/validation.js'
-import { saida } from './OO/wayout.js'
+import { validar_numero } from './OO/validation.js' */
+import { saida } from './oo/wayout.js'
 
 
 // Create vars 
@@ -31,7 +31,61 @@ let info = window.document.getElementById('informations')
 // Activations of modules/functions
 
 // Digits
-function numb (val) {
-    let value = Number(val)
-    number(value)
+/*function numb(val) {
+    console.log(`Ativa Numb`);
+    value(val)
+    console.log(`Chamada`);
+}*/
+
+function cosmo () {
+    console.log('Funcionou');
+}
+
+console.log('Raiz');
+value(2)
+
+function numb(cond) {
+    let val = Number(cond)
+    switch (val) {
+        case 0:
+            txt += 0
+            display.innerHTML = `${txt}`
+            break;
+        case 1:
+            txt += 1
+            display.innerHTML = `${txt}`
+            break;
+        case 2:
+            txt += 2
+            display.innerHTML = `${txt}`
+            break;
+        case 3:
+            txt += 3
+            display.innerHTML = `${txt}`
+            break;
+        case 4:
+            txt += 4
+            display.innerHTML = `${txt}`
+            break;
+        case 5:
+            txt += 5
+            display.innerHTML = `${txt}`
+            break;
+        case 6:
+            txt += 6
+            display.innerHTML = `${txt}`
+            break;
+        case 7:
+            txt += 7
+            display.innerHTML = `${txt}`
+            break;
+        case 8:
+            txt += 8
+            display.innerHTML = `${txt}`
+            break;
+        case 9:
+            txt += 9
+            display.innerHTML = `${txt}`
+            break;
+    }
 }
