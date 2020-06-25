@@ -2,7 +2,7 @@
 // actions  
 import { saida } from './wayout'
 
-export default function division() {
+export function division() {
     let val = validar_numero()
     if (val == true) {                  //  Se o número for válido, insere o operador
         operadores('div', 1)
@@ -14,7 +14,7 @@ export default function division() {
     saida()
 }
 
-export default function multiplication() {
+export function multiplication() {
     let val = validar_numero()
     if (val == true) {                  //  Se o número for válido, insere o operador
         operadores('mult', 1)
@@ -26,7 +26,7 @@ export default function multiplication() {
     saida()
 }
 
-export default function percent() {
+export  function percent() {
     let val = validar_numero()
     if (val == true) {                  //  Se o número for válido, insere o operador
         operadores('percent', 1)
@@ -40,7 +40,7 @@ export default function percent() {
     // saida()
 }
 
-export default function soma() {
+export  function soma() {
     let val = validar_numero()
     if (val == true) {                  // Se o número for válido, insere o operador
         operadores('sum', 1)
@@ -52,7 +52,7 @@ export default function soma() {
     saida()
 }
 
-export default function subtraction() {
+export  function subtraction() {
     let val = validar_numero()
     if (val == true) {                  //  Se o número for válido, insere o operador
         operadores('subtraction', 1)

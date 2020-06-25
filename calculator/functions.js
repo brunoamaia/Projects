@@ -2,12 +2,12 @@
 // import function =>  import { func } from 'arq.js'
 
 // Import functions fromd modules
-import { numb } from './OO/digitis'
-import { division, multiplication, percent, soma, subtraction } from "./OO/operatorsBasic"
-import { point, resulte, signal } from './OO/operatorsSecond'
-import { clearAll, clearElement } from './OO/clear';
-import { validar_numero } from './OO/validation'
-import { saida } from './OO/wayout'
+import { number } from './OO/digitis.js'
+import { division, multiplication, percent, soma, subtraction } from "./OO/operatorsBasic.js"
+import { point, resulte, signal } from './OO/operatorsSecond.js'
+import { clearAll, clearElement } from './OO/clear.js';
+import { validar_numero } from './OO/validation.js'
+import { saida } from './OO/wayout.js'
 
 
 // Create vars 
@@ -28,4 +28,10 @@ var arrowu = window.document.getElementById('arrowup')
 var arrowd = window.document.getElementById('arrowdown')
 let info = window.document.getElementById('informations')
 
+// Activations of modules/functions
 
+// Digits
+function numb (val) {
+    let value = Number(val)
+    number(value)
+}
