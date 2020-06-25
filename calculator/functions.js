@@ -2,7 +2,7 @@
 // import function =>  import { func } from 'arq.js'
 
 // Import functions fromd modules
-import { value } from './oo/digitis.js'
+import { digit } from './oo/digitis.js'
 /*import { division, multiplication, percent, soma, subtraction } from "./OO/operatorsBasic.js"
 import { point, resulte, signal } from './OO/operatorsSecond.js'
 import { clearAll, clearElement } from './OO/clear.js';
@@ -37,8 +37,8 @@ let info = window.document.getElementById('informations')
     console.log(`Chamada`);
 }*/
 
-function cosmo () {
-    console.log('Funcionou');
+function cosmo (as) {
+    digit(as)
 }
 
 console.log('Raiz');
