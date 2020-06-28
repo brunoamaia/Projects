@@ -2,13 +2,14 @@
 // import function =>  import { func } from 'arq.js'
 
 // Import functions fromd modules
-import { digit } from './oo/digitis.js'
+import { digit } from './oo/digitis.js';
 /*import { division, multiplication, percent, soma, subtraction } from "./OO/operatorsBasic.js"
 import { point, resulte, signal } from './OO/operatorsSecond.js'
 import { clearAll, clearElement } from './OO/clear.js';
 import { validar_numero } from './OO/validation.js' */
-import { saida } from './oo/wayout.js'
+/*import saida from './oo/wayout.js' */
 
+console.log('Main - import Ok');
 
 // Create vars 
 let display = document.querySelector('div#display')
@@ -38,13 +39,13 @@ let info = window.document.getElementById('informations')
 }*/
 
 function cosmo (as) {
-    digit(as)
+    console.log('cosmos');
+    console.log(as);
 }
 
-console.log('Raiz');
-value(2)
 
-function numb(cond) {
+
+/*export function numb(cond) {
     let val = Number(cond)
     switch (val) {
         case 0:
@@ -89,3 +90,35 @@ function numb(cond) {
             break;
     }
 }
+*/
+
+console.log('Main - call functions ');
+
+for (let i = 0; i < 10; i++) {
+    let su = digit(i, txt)
+    txt += su
+    console.log(`Main Return - txt = ${txt} => i = ${i}`);
+    display.innerHTML += `${txt}`
+}
+
+/*
+[ txt, display.innerHTML = `${txt}` ] = digit(0, txt, display)
+console.log(`Main - txt = ${txt} ; display = ${display}`);
+digit('1', txt, display)
+console.log(`Main - txt = ${txt} ; display = ${display}`);
+digit('2', txt, display)
+console.log(`Main - txt = ${txt} ; display = ${display}`);
+digit('3', txt, display)
+console.log(`Main - txt = ${txt} ; display = ${display}`);
+digit('4', txt, display)
+console.log(`Main - txt = ${txt} ; display = ${display}`);
+digit('5', txt, display)
+console.log(`Main - txt = ${txt} ; display = ${display}`);
+digit('6', txt, display)
+console.log(`Main - txt = ${txt} ; display = ${display}`);
+digit('7', txt, display)
+console.log(`Main - txt = ${txt} ; display = ${display}`);
+digit('8', txt, display)
+console.log(`Main - txt = ${txt} ; display = ${display}`);
+digit('9', txt, display)
+console.log(`Main - txt = ${txt} ; display = ${display}`); */
