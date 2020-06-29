@@ -34,4 +34,4 @@ class digit {
     }
 }
 
-export { digit }
+export default digit

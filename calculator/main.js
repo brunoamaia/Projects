@@ -2,12 +2,12 @@
 // import function =>  import { func } from 'arq.js'
 
 // Import functions fromd modules
-import { digit } from './oo/digitis.js';
+import digit from './oo/digitis.js';
 /*import { division, multiplication, percent, soma, subtraction } from "./OO/operatorsBasic.js"
 import { point, resulte, signal } from './OO/operatorsSecond.js'
 import { clearAll, clearElement } from './OO/clear.js';
 import { validar_numero } from './OO/validation.js' */
-/*import saida from './oo/wayout.js' */
+import exit from './oo/wayout.js'
 
 console.log('Main - import Ok');
 

@@ -2,7 +2,13 @@
 // saida - control of the Principal display
 // lista - control of the Second display (historic)
 
-export default function saida () {             // Control of the information that will be shown
+class exit {
+
+}
+
+export default exit
+
+/*export default function saida () {             // Control of the information that will be shown
     let n = String(result)
     
     if (notnumber == 1) {
@@ -22,7 +28,7 @@ export default function saida () {             // Control of the information tha
     } else {
         arrowu.innerHTML = ''
     } */
-
+/*
     notnumber=0
     lista()
 }
@@ -45,14 +51,14 @@ function lista() {              // Historic of the operations
     }
 
     // // Inserir setas para quano o histórico estiver muito grande
-    /*//info.innerHTML = `Saida do historico = ${resp.length}`
-    let g = String(resp)
+    /* //info.innerHTML = `Saida do historico = ${resp.length}`
+   let g = String(resp)
     if (g.length > 20 ) {
         arrowd.innerHTML = '<button onclick="movlefdown()"> <img src="./src/chevron-left.svg" alt="to move for left"> </button></div> <br>'
         arrowd.innerHTML += '<button onclick="movrigdown()"> <img src="./src/chevron-right.svg" alt="to move for right"> </button></div>'
     } else { 
         arrowd.innerHTML = ''
     }*/
-
+/*
     histor.innerHTML = `${resp}`
-}
+} */
