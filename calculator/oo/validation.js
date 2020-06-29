@@ -3,29 +3,40 @@
 import exit from './wayout.js'
 
 class validate {
-    constructor(txt, values='', notnumber=0 ) {
+    constructor(txt, operation='', values='') {
         this.txt = txt
+        this.operation = operation
         this.values = values
-        this.notnumber = notnumber
-        console.log('Validação');
+        //console.log('Validação');
         //console.log(`txt = ${txt} \noperation = ${operation} \nvalues = ${values} \nresult = ${result}  `);
     }
 
     test(){
+        console.log('Validação - tentar validar');
         let n = this.txt.length
         if (n == 0) {    // Verificar se algum valor foi digitado
+            //console.log('Sem digito');
             this.notnumber = 1
+            return ['', this.values,false]
         } else if (this.txt == '.') {
+            //console.log('Apenas ponto');
             this.notnumber = 1
+            return ['', this.values, false]
         } else {
-            this.values[this.pos_val] = Number(txt)
-            this.pos_val += 1
+            //console.log('Validado');
+            this.values.push(Number(this.txt))
             this.txt = ''
             let disp = new exit(this.txt)
             disp.numbNow()
             //display.innerHTML = `${txt}`    // Caso tenha sido o primeiro valor digitado, limpa a tela ***
-            return true
+            return [this.txt, this.values, true]
         }
+    }
+
+    historic(){
+        let histExit = new exit(this.txt, this.operation, this.values)
+        let ret = histExit.operators()
+        return ret
     }
 }
 

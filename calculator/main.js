@@ -13,13 +13,9 @@ import { validar_numero } from './OO/validation.js' */
 let txt = ''                // Text of display 
 let result = 0              // Value/information for principal display  
 let values = []             // Array of values
-let pos_val = 0             // Position/range of values
 let operation = []          // Array of operators
-let pos_op = 0              // Position/range of operators
 let op = ''     // Operation calling - sum, subtraction, division, multiplication
 let ac = 0      // Operator insertion - whether it will be after or before the number
-let notnumber = 0   // Information about operations : 0- normal, 1- without value,  2- not running!, 3 - result
-let newcount = 0 // first number is negative                                    ************ Remove
 let w = window.innerWidth;      // Width os window
 var arrowu = window.document.getElementById('arrowup')
 var arrowd = window.document.getElementById('arrowdown')
@@ -35,9 +31,15 @@ let subtraction = document.querySelector('.subtraction')
 let sum = document.querySelector('.sum')
 
 sum.addEventListener('click', () => {
-    let soma = new operBasic(txt, operation, values, result)
-    soma.sum()
     console.log('Soma chamada');
+    console.log(`Inicio: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
+    let soma = new operBasic(txt, operation, values)
+    
+    let fini = soma.sum()
+    txt = fini[0]
+    operation = fini[1]
+    values = fini[2]
+    console.log(`Final: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
 })
 
 

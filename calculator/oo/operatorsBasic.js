@@ -4,70 +4,80 @@
 import validate from './validation.js'
 
 class operBasic{
-    constructor( txt, operation='', values='', result='' ) {
-        this.operation = operation
-        this.result = result
+    constructor( txt, operation='', values='') {
         this.txt = txt
+        this.operation = operation
         this.values = values
-        console.log('Operadores');
+        //console.log('Operadores');
         //console.log(`txt = ${txt} \noperation = ${operation} \nvalues = ${values} \nresult = ${result}  `);
     }
 
     sum() {
-        console.log('Soma');
-        let val = new validate(this.txt, )
+        //console.log('Soma');
+        let val = new validate(this.txt, this.operation, this.values)
+        let teste = val.test()
+        this.txt = teste[0]
+        this.values = teste[1]
 
-        if (val == true) {                  // Se o número for válido, insere o operador
-            operadores('sum', 1)
+        if (teste[2] == true) {                  // Se o número for válido, insere o operador
+            console.log('Novo operador');
+            this.operation = operadores('sum', 1, this.operation)
         } else {                            // Se o número Não for válido, verifica se existe oprador
-            if (pos_op != 0) {              // Caso exista, troca ele [ arrumar operador ] [Posição correta]
-                operadores('sum', -1)
-            }
+            this.operation = operadores('sum', -1, this.operation)
         }
-        /*saida()*/
+
+        let hist = new validate(this.txt, this.operation, this.values)
+        let actual = hist.historic()
+        return actual
     }
 }
 export default operBasic
 
-/* adicionar
-function operadores(op, ac) {   // Insertion of the operators in the right place
+function operadores(op, pos, oper) {   // Insertion of the operators in the right place
+    // OP - operation       pos - Position of the operation         oper - Array of the operations
     if (op == 'sum') {
-        if (ac != '-1') {
-            operation[pos_op] = ' + '
-            pos_op += 1
+        if (pos != '-1') {
+            oper.push(' + ')
+            return oper
         } else {
-            operation[pos_op-1] = ' + '
+            let n = op.length
+            oper[n-1] = ' + '
+            return oper
         }
     } else if (op == 'subtraction') {
-        if (ac != '-1') {
-            operation[pos_op] = ' - '
+        if (pos != '-1') {
+            oper[pos_op] = ' - '
             pos_op += 1
         } else {
-            operation[pos_op-1] = ' - '
+            oper[pos_op-1] = ' - '
+            return oper
         }
     } else if (op == 'div') {
-        if (ac != '-1') {
-            operation[pos_op] = ' / '
+        if (pos != '-1') {
+            oper[pos_op] = ' / '
             pos_op += 1
         } else {
-            operation[pos_op-1] = ' / '
+            oper[pos_op-1] = ' / '
+            return oper
         }
     } else if (op == 'mult') {
-        if (ac != '-1') {
-            operation[pos_op] = ' * '
+        if (pos != '-1') {
+            oper[pos_op] = ' * '
             pos_op += 1
         } else {
-            operation[pos_op-1] = ' * '
+            oper[pos_op-1] = ' * '
+            return oper
         }
     } else if (op == 'percent')  {
-        if (ac != '-1') {
-            operation[pos_op] = '% '
+        if (pos != '-1') {
+            oper[pos_op] = '% '
             pos_op += 1
         } else {
-            operation[pos_op-1] = '% '
+            oper[pos_op-1] = '% '
+            return oper
         }
     }
-} */
+}
 
 /*export function division() {
     let val = validar_numero()

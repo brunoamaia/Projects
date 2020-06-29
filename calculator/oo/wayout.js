@@ -12,20 +12,55 @@ class exit {
         this.txt = txt
         this.values = values
         this.notnumber = notnumber
-        console.log('Saida');
+        //console.log('Saida');
         //console.log(`txt = ${txt} \noperation = ${operation} \nvalues = ${values} \nresult = ${result}  `);
     }
 
     numbNow() {
+        //console.log('Saida - Valor no dispaly');
         display.innerHTML = `${this.txt}`
     }
 
-    operation() {
-
+    operators() {
+        //console.log('Saida - Historico');
+        let zz = lista(this.txt, this.operation, this.values)
+        return zz
     }
 }
-
 export default exit
+
+function lista(now, operations, values) {              // Historic of the operationss
+   // console.log('Lista - chamada');
+    let n = operations.length
+    let m = values.length
+    let resp = '' 
+    if (n ==0 && m == 0) {
+        resp = ''
+    }else {
+        console.log(`Valores = ${values}`);
+        console.log(`Operadores = ${operations}`);
+        for (let i = 0; i < m; i++) {
+            resp += values[i] + operations[i]
+            console.log(resp);
+        }
+    }
+
+    // // Inserir setas para quano o histórico estiver muito grande
+    /* //info.innerHTML = `Saida do historico = ${resp.length}`
+   let g = String(resp)
+    if (g.length > 20 ) {
+        arrowd.innerHTML = '<button onclick="movlefdown()"> <img src="./src/chevron-left.svg" alt="to move for left"> </button></div> <br>'
+        arrowd.innerHTML += '<button onclick="movrigdown()"> <img src="./src/chevron-right.svg" alt="to move for right"> </button></div>'
+    } else { 
+        arrowd.innerHTML = ''
+    }*/
+
+    histor.innerHTML = `${resp}`
+    now = ''
+    return [now, operations, values]
+} 
+
+
 
 /*export default function saida () {             // Control of the information that will be shown
     let n = String(result)
