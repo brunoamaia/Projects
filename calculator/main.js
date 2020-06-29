@@ -3,8 +3,8 @@
 
 // Import functions fromd modules
 import digit from './oo/digitis.js';
-/*import { division, multiplication, percent, soma, subtraction } from "./OO/operatorsBasic.js"
-import { point, resulte, signal } from './OO/operatorsSecond.js'
+import operBasic from './oo/operatorsBasic.js'
+/*import { point, resulte, signal } from './OO/operatorsSecond.js'
 import { clearAll, clearElement } from './OO/clear.js';
 import { validar_numero } from './OO/validation.js' */
 
@@ -34,6 +34,11 @@ let percent = document.querySelector('.percent')
 let subtraction = document.querySelector('.subtraction')
 let sum = document.querySelector('.sum')
 
+sum.addEventListener('click', () => {
+    let soma = new operBasic(txt, operation, values, result)
+    soma.sum()
+    console.log('Soma chamada');
+})
 
 
 // Function for digtis

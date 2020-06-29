@@ -1,20 +1,33 @@
 // functions Basics (operators)
 // actions  
 
+import validate from './validation.js'
 
-class operation{
-    constructor( txt, operation='', pos_oper='', values='', pos_val='', result='' ) {
+class operBasic{
+    constructor( txt, operation='', values='', result='' ) {
         this.operation = operation
-        this.pos_oper = pos_oper
-        this.pos_val = pos_val
         this.result = result
         this.txt = txt
         this.values = values
         console.log('Operadores');
         //console.log(`txt = ${txt} \noperation = ${operation} \nvalues = ${values} \nresult = ${result}  `);
     }
+
+    sum() {
+        console.log('Soma');
+        let val = new validate(this.txt, )
+
+        if (val == true) {                  // Se o número for válido, insere o operador
+            operadores('sum', 1)
+        } else {                            // Se o número Não for válido, verifica se existe oprador
+            if (pos_op != 0) {              // Caso exista, troca ele [ arrumar operador ] [Posição correta]
+                operadores('sum', -1)
+            }
+        }
+        /*saida()*/
+    }
 }
-export default operation
+export default operBasic
 
 /* adicionar
 function operadores(op, ac) {   // Insertion of the operators in the right place

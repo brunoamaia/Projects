@@ -1,10 +1,32 @@
 // Process of validation the numbers/operations 
 
-class validate {
-    constructor() {
+import exit from './wayout.js'
 
+class validate {
+    constructor(txt, values='', notnumber=0 ) {
+        this.txt = txt
+        this.values = values
+        this.notnumber = notnumber
+        console.log('Validação');
+        //console.log(`txt = ${txt} \noperation = ${operation} \nvalues = ${values} \nresult = ${result}  `);
     }
 
+    test(){
+        let n = this.txt.length
+        if (n == 0) {    // Verificar se algum valor foi digitado
+            this.notnumber = 1
+        } else if (this.txt == '.') {
+            this.notnumber = 1
+        } else {
+            this.values[this.pos_val] = Number(txt)
+            this.pos_val += 1
+            this.txt = ''
+            let disp = new exit(this.txt)
+            disp.numbNow()
+            //display.innerHTML = `${txt}`    // Caso tenha sido o primeiro valor digitado, limpa a tela ***
+            return true
+        }
+    }
 }
 
 export default validate
