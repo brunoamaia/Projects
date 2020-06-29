@@ -1,6 +1,9 @@
 // Process of validation the numbers/operations 
 
 class validate {
+    constructor() {
+
+    }
 
 }
 

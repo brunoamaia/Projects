@@ -13,11 +13,16 @@ class exit {
         this.result = result
         this.txt = txt
         this.values = values
-        console.log(`txt = ${txt} \noperation = ${operation} \nvalues = ${values} \nresult = ${result}  `);
+        console.log('Saida');
+        //console.log(`txt = ${txt} \noperation = ${operation} \nvalues = ${values} \nresult = ${result}  `);
     }
 
     numbNow() {
         display.innerHTML = `${this.txt}`
+    }
+
+    operation() {
+
     }
 }
 

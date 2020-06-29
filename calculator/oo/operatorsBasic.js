@@ -1,8 +1,62 @@
 // functions Basics (operators)
 // actions  
-import { saida } from './wayout'
 
-export function division() {
+
+class operation{
+    constructor( txt, operation='', pos_oper='', values='', pos_val='', result='' ) {
+        this.operation = operation
+        this.pos_oper = pos_oper
+        this.pos_val = pos_val
+        this.result = result
+        this.txt = txt
+        this.values = values
+        console.log('Operadores');
+        //console.log(`txt = ${txt} \noperation = ${operation} \nvalues = ${values} \nresult = ${result}  `);
+    }
+}
+export default operation
+
+/* adicionar
+function operadores(op, ac) {   // Insertion of the operators in the right place
+    if (op == 'sum') {
+        if (ac != '-1') {
+            operation[pos_op] = ' + '
+            pos_op += 1
+        } else {
+            operation[pos_op-1] = ' + '
+        }
+    } else if (op == 'subtraction') {
+        if (ac != '-1') {
+            operation[pos_op] = ' - '
+            pos_op += 1
+        } else {
+            operation[pos_op-1] = ' - '
+        }
+    } else if (op == 'div') {
+        if (ac != '-1') {
+            operation[pos_op] = ' / '
+            pos_op += 1
+        } else {
+            operation[pos_op-1] = ' / '
+        }
+    } else if (op == 'mult') {
+        if (ac != '-1') {
+            operation[pos_op] = ' * '
+            pos_op += 1
+        } else {
+            operation[pos_op-1] = ' * '
+        }
+    } else if (op == 'percent')  {
+        if (ac != '-1') {
+            operation[pos_op] = '% '
+            pos_op += 1
+        } else {
+            operation[pos_op-1] = '% '
+        }
+    }
+} */
+
+/*export function division() {
     let val = validar_numero()
     if (val == true) {                  //  Se o número for válido, insere o operador
         operadores('div', 1)
@@ -62,43 +116,4 @@ export  function subtraction() {
         }
     }
     saida()
-}
-
-function operadores(op, ac) {   // Insertion of the operators in the right place
-    if (op == 'sum') {
-        if (ac != '-1') {
-            operation[pos_op] = ' + '
-            pos_op += 1
-        } else {
-            operation[pos_op-1] = ' + '
-        }
-    } else if (op == 'subtraction') {
-        if (ac != '-1') {
-            operation[pos_op] = ' - '
-            pos_op += 1
-        } else {
-            operation[pos_op-1] = ' - '
-        }
-    } else if (op == 'div') {
-        if (ac != '-1') {
-            operation[pos_op] = ' / '
-            pos_op += 1
-        } else {
-            operation[pos_op-1] = ' / '
-        }
-    } else if (op == 'mult') {
-        if (ac != '-1') {
-            operation[pos_op] = ' * '
-            pos_op += 1
-        } else {
-            operation[pos_op-1] = ' * '
-        }
-    } else if (op == 'percent')  {
-        if (ac != '-1') {
-            operation[pos_op] = '% '
-            pos_op += 1
-        } else {
-            operation[pos_op-1] = '% '
-        }
-    }
-} 
+}*/

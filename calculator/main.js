@@ -27,6 +27,15 @@ let info = window.document.getElementById('informations')
 
 // Activations of modules/functions
 
+// Function for Basic Operators 
+let division = document.querySelector('.division')
+let multiplication = document.querySelector('.multiplication')
+let percent = document.querySelector('.percent')
+let subtraction = document.querySelector('.subtraction')
+let sum = document.querySelector('.sum')
+
+
+
 // Function for digtis
 let num0 = document.querySelector('.zero')
 let num1 = document.querySelector('.one')
