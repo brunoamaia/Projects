@@ -13,7 +13,7 @@ class operBasic{
     }
 
     subtraction() {
-        console.log('Subtraction');
+        //console.log('Subtraction');
         let val = new validate(this.txt, this.operation, this.values)
         let teste = val.test()
         this.txt = teste[0]
@@ -31,7 +31,7 @@ class operBasic{
     }
 
     sum() {
-        console.log('Sum');
+        //console.log('Sum');
         let val = new validate(this.txt, this.operation, this.values)
         let teste = val.test()
         this.txt = teste[0]
@@ -52,7 +52,7 @@ export default operBasic
 
 function operadores(op, pos, oper) {   // Insertion of the operators in the right place
     // OP - operation       pos - Position of the operation         oper - Array of the operations
-    console.log(`Operadores = ${oper} (funct)`);
+    //console.log(`Operadores = ${oper} (funct)`);
     if (op == 'sum') {
         if (pos != '-1') {
             oper.push(' + ')
