@@ -37,11 +37,21 @@ let info = window.document.getElementById('informations')
     value(val)
     console.log(`Chamada`);
 }*/
+console.log('Main - call functions ');
 
-function cosmo (as) {
-    console.log('cosmos');
-    console.log(as);
-}
+// Function for digtis
+let num7 = document.querySelector('.seven')
+let num8 = document.querySelector('.eigth')
+let num9 = document.querySelector('.nine')
+
+num8.addEventListener('click', () => {
+    import('./oo/digitis.js').then((Module) => {
+        let num = new Module.digit(8, txt)
+        txt = num.value()
+        display.innerHTML = `${txt}`
+    })
+});
+
 
 
 
@@ -92,14 +102,14 @@ function cosmo (as) {
 }
 */
 
-console.log('Main - call functions ');
 
+/*
 for (let i = 0; i < 10; i++) {
     let su = digit(i, txt)
     txt += su
     console.log(`Main Return - txt = ${txt} => i = ${i}`);
     display.innerHTML += `${txt}`
-}
+} */
 
 /*
 [ txt, display.innerHTML = `${txt}` ] = digit(0, txt, display)
