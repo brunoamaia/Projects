@@ -37,11 +37,8 @@ function lista(now, operations, values) {              // Historic of the operat
     if (n ==0 && m == 0) {
         resp = ''
     }else {
-        console.log(`Valores = ${values}`);
-        console.log(`Operadores = ${operations}`);
         for (let i = 0; i < m; i++) {
             resp += values[i] + operations[i]
-            console.log(resp);
         }
     }
 

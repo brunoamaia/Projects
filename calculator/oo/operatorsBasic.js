@@ -52,12 +52,13 @@ export default operBasic
 
 function operadores(op, pos, oper) {   // Insertion of the operators in the right place
     // OP - operation       pos - Position of the operation         oper - Array of the operations
+    console.log(`Operadores = ${oper} (funct)`);
     if (op == 'sum') {
         if (pos != '-1') {
             oper.push(' + ')
             return oper
         } else {
-            let n = op.length
+            let n = oper.length
             oper[n-1] = ' + '
             return oper
         }
@@ -66,7 +67,7 @@ function operadores(op, pos, oper) {   // Insertion of the operators in the righ
             oper.push(' - ')
             return oper
         } else {
-            let n = op.length
+            let n = oper.length
             oper[n-1] = ' - '
             return oper
         }
@@ -75,7 +76,7 @@ function operadores(op, pos, oper) {   // Insertion of the operators in the righ
             oper.push(' / ')
             return oper
         } else {
-            let n = op.length
+            let n = oper.length
             oper[n-1] = ' / '
             return oper
         }
@@ -84,7 +85,7 @@ function operadores(op, pos, oper) {   // Insertion of the operators in the righ
             oper.push(' * ')
             return oper
         } else {
-            let n = op.length
+            let n = oper.length
             oper[n-1] = ' * '
             return oper
         }
@@ -93,7 +94,7 @@ function operadores(op, pos, oper) {   // Insertion of the operators in the righ
             oper.push(' % ')
             return oper
         } else {
-            let n = op.length
+            let n = oper.length
             oper[n-1] =  '% '
             return oper
         }
