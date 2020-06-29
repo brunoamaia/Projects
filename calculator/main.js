@@ -40,10 +40,74 @@ let info = window.document.getElementById('informations')
 console.log('Main - call functions ');
 
 // Function for digtis
+let num0 = document.querySelector('.zero')
+let num1 = document.querySelector('.one')
+let num2 = document.querySelector('.two')
+let num3 = document.querySelector('.three')
+let num4 = document.querySelector('.four')
+let num5 = document.querySelector('.five')
+let num6 = document.querySelector('.six')
 let num7 = document.querySelector('.seven')
 let num8 = document.querySelector('.eigth')
 let num9 = document.querySelector('.nine')
 
+
+num0.addEventListener('click', () => {
+    import('./oo/digitis.js').then((Module) => {
+        let num = new Module.digit(0, txt)
+        txt = num.value()
+        display.innerHTML = `${txt}`
+    })
+});
+num1.addEventListener('click', () => {
+    import('./oo/digitis.js').then((Module) => {
+        let num = new Module.digit(1, txt)
+        txt = num.value()
+        display.innerHTML = `${txt}`
+    })
+});
+num2.addEventListener('click', () => {
+    import('./oo/digitis.js').then((Module) => {
+        let num = new Module.digit(2, txt)
+        txt = num.value()
+        display.innerHTML = `${txt}`
+    })
+});
+num3.addEventListener('click', () => {
+    import('./oo/digitis.js').then((Module) => {
+        let num = new Module.digit(3, txt)
+        txt = num.value()
+        display.innerHTML = `${txt}`
+    })
+});
+num4.addEventListener('click', () => {
+    import('./oo/digitis.js').then((Module) => {
+        let num = new Module.digit(4, txt)
+        txt = num.value()
+        display.innerHTML = `${txt}`
+    })
+});
+num5.addEventListener('click', () => {
+    import('./oo/digitis.js').then((Module) => {
+        let num = new Module.digit(5, txt)
+        txt = num.value()
+        display.innerHTML = `${txt}`
+    })
+});
+num6.addEventListener('click', () => {
+    import('./oo/digitis.js').then((Module) => {
+        let num = new Module.digit(6, txt)
+        txt = num.value()
+        display.innerHTML = `${txt}`
+    })
+});
+num7.addEventListener('click', () => {
+    import('./oo/digitis.js').then((Module) => {
+        let num = new Module.digit(7, txt)
+        txt = num.value()
+        display.innerHTML = `${txt}`
+    })
+});
 num8.addEventListener('click', () => {
     import('./oo/digitis.js').then((Module) => {
         let num = new Module.digit(8, txt)
@@ -51,9 +115,24 @@ num8.addEventListener('click', () => {
         display.innerHTML = `${txt}`
     })
 });
+num9.addEventListener('click', () => {
+    import('./oo/digitis.js').then((Module) => {
+        let num = new Module.digit(9, txt)
+        txt = num.value()
+        display.innerHTML = `${txt}`
+    })
+});
 
 
-
+/*// draw a square
+squareBtn.addEventListener('click', () => {
+  import('./modules/square.js').then((Module) => {
+    let square1 = new Module.Square(myCanvas.ctx, myCanvas.listId, 50, 50, 100, 'blue');
+    square1.draw();
+    square1.reportArea();
+    square1.reportPerimeter();
+  })
+});*/
 
 /*export function numb(cond) {
     let val = Number(cond)
