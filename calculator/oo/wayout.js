@@ -2,7 +2,21 @@
 // saida - control of the Principal display
 // lista - control of the Second display (historic)
 
+var display = document.querySelector('div#display')
+var histor = document.querySelector('div#history')
+
 class exit {
+    constructor( txt, operation, values, result ) {
+        this.operation = operation
+        this.result = result
+        this.txt = txt
+        this.values = values
+        console.log(`txt = ${txt} \noperation = ${operation} \nvalues = ${values} \nresult = ${result}  `);
+    }
+
+    numbNow() {
+        display.innerHTML = `${this.txt}`
+    }
 
 }
 
