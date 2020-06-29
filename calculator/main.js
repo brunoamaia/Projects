@@ -53,74 +53,54 @@ let num9 = document.querySelector('.nine')
 
 
 num0.addEventListener('click', () => {
-    import('./oo/digitis.js').then((Module) => {
-        let num = new Module.digit(0, txt)
-        txt = num.value()
-        display.innerHTML = `${txt}`
-    })
+    let num = new digit(0, txt)
+    txt = num.value()
+    display.innerHTML = `${txt}`
 });
 num1.addEventListener('click', () => {
-    import('./oo/digitis.js').then((Module) => {
-        let num = new Module.digit(1, txt)
-        txt = num.value()
-        display.innerHTML = `${txt}`
-    })
+    let num = new digit(1, txt)
+    txt = num.value()
+    display.innerHTML = `${txt}`
 });
 num2.addEventListener('click', () => {
-    import('./oo/digitis.js').then((Module) => {
-        let num = new Module.digit(2, txt)
-        txt = num.value()
-        display.innerHTML = `${txt}`
-    })
+    let num = new digit(2, txt)
+    txt = num.value()
+    display.innerHTML = `${txt}`
 });
 num3.addEventListener('click', () => {
-    import('./oo/digitis.js').then((Module) => {
-        let num = new Module.digit(3, txt)
-        txt = num.value()
-        display.innerHTML = `${txt}`
-    })
+    let num = new digit(3, txt)
+    txt = num.value()
+    display.innerHTML = `${txt}`
 });
 num4.addEventListener('click', () => {
-    import('./oo/digitis.js').then((Module) => {
-        let num = new Module.digit(4, txt)
-        txt = num.value()
-        display.innerHTML = `${txt}`
-    })
+    let num = new digit(4, txt)
+    txt = num.value()
+    display.innerHTML = `${txt}`
 });
 num5.addEventListener('click', () => {
-    import('./oo/digitis.js').then((Module) => {
-        let num = new Module.digit(5, txt)
-        txt = num.value()
-        display.innerHTML = `${txt}`
-    })
+    let num = new digit(5, txt)
+    txt = num.value()
+    display.innerHTML = `${txt}`
 });
 num6.addEventListener('click', () => {
-    import('./oo/digitis.js').then((Module) => {
-        let num = new Module.digit(6, txt)
-        txt = num.value()
-        display.innerHTML = `${txt}`
-    })
+    let num = new digit(6, txt)
+    txt = num.value()
+    display.innerHTML = `${txt}`
 });
 num7.addEventListener('click', () => {
-    import('./oo/digitis.js').then((Module) => {
-        let num = new Module.digit(7, txt)
-        txt = num.value()
-        display.innerHTML = `${txt}`
-    })
+    let num = new digit(7, txt)
+    txt = num.value()
+    display.innerHTML = `${txt}`
 });
 num8.addEventListener('click', () => {
-    import('./oo/digitis.js').then((Module) => {
-        let num = new Module.digit(8, txt)
-        txt = num.value()
-        display.innerHTML = `${txt}`
-    })
+    let num = new digit(8, txt)
+    txt = num.value()
+    display.innerHTML = `${txt}`
 });
 num9.addEventListener('click', () => {
-    import('./oo/digitis.js').then((Module) => {
-        let num = new Module.digit(9, txt)
-        txt = num.value()
-        display.innerHTML = `${txt}`
-    })
+    let num = new digit(9, txt)
+    txt = num.value()
+    display.innerHTML = `${txt}`
 });
 
 

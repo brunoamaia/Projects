@@ -1,6 +1,11 @@
 // Process of validation the numbers/operations 
 
-export default function validar_numero () {    // Check that a number has been entered
+class validate {
+
+}
+
+
+/* function validar_numero () {    // Check that a number has been entered
     if (newcount == 1) {            // Utilizar o valor da conta anterior para iniciar uma nova conta
         values = []     // Rest values
         pos_val = 0
@@ -29,4 +34,4 @@ export default function validar_numero () {    // Check that a number has been e
             return true
         }
     }
-}
+} */
