@@ -12,15 +12,32 @@ class operBasic{
         //console.log(`txt = ${txt} \noperation = ${operation} \nvalues = ${values} \nresult = ${result}  `);
     }
 
-    sum() {
-        //console.log('Soma');
+    subtraction() {
+        console.log('Subtraction');
         let val = new validate(this.txt, this.operation, this.values)
         let teste = val.test()
         this.txt = teste[0]
         this.values = teste[1]
 
         if (teste[2] == true) {                  // Se o número for válido, insere o operador
-            console.log('Novo operador');
+            this.operation = operadores('subtraction', 1, this.operation)
+        } else {                            // Se o número Não for válido, verifica se existe oprador
+            this.operation = operadores('subtraction', -1, this.operation)
+        }
+
+        let hist = new validate(this.txt, this.operation, this.values)
+        let actual = hist.historic()
+        return actual
+    }
+
+    sum() {
+        console.log('Sum');
+        let val = new validate(this.txt, this.operation, this.values)
+        let teste = val.test()
+        this.txt = teste[0]
+        this.values = teste[1]
+
+        if (teste[2] == true) {                  // Se o número for válido, insere o operador
             this.operation = operadores('sum', 1, this.operation)
         } else {                            // Se o número Não for válido, verifica se existe oprador
             this.operation = operadores('sum', -1, this.operation)
@@ -46,34 +63,38 @@ function operadores(op, pos, oper) {   // Insertion of the operators in the righ
         }
     } else if (op == 'subtraction') {
         if (pos != '-1') {
-            oper[pos_op] = ' - '
-            pos_op += 1
+            oper.push(' - ')
+            return oper
         } else {
-            oper[pos_op-1] = ' - '
+            let n = op.length
+            oper[n-1] = ' - '
             return oper
         }
     } else if (op == 'div') {
         if (pos != '-1') {
-            oper[pos_op] = ' / '
-            pos_op += 1
+            oper.push(' / ')
+            return oper
         } else {
-            oper[pos_op-1] = ' / '
+            let n = op.length
+            oper[n-1] = ' / '
             return oper
         }
     } else if (op == 'mult') {
         if (pos != '-1') {
-            oper[pos_op] = ' * '
-            pos_op += 1
+            oper.push(' * ')
+            return oper
         } else {
-            oper[pos_op-1] = ' * '
+            let n = op.length
+            oper[n-1] = ' * '
             return oper
         }
     } else if (op == 'percent')  {
         if (pos != '-1') {
-            oper[pos_op] = '% '
-            pos_op += 1
+            oper.push(' % ')
+            return oper
         } else {
-            oper[pos_op-1] = '% '
+            let n = op.length
+            oper[n-1] =  '% '
             return oper
         }
     }

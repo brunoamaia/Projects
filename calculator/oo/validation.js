@@ -15,20 +15,19 @@ class validate {
         console.log('Validação - tentar validar');
         let n = this.txt.length
         if (n == 0) {    // Verificar se algum valor foi digitado
-            //console.log('Sem digito');
+            console.log('Sem digito');
             this.notnumber = 1
             return ['', this.values,false]
         } else if (this.txt == '.') {
-            //console.log('Apenas ponto');
+            console.log('Apenas ponto');
             this.notnumber = 1
             return ['', this.values, false]
         } else {
-            //console.log('Validado');
+            console.log('Validado');
             this.values.push(Number(this.txt))
             this.txt = ''
             let disp = new exit(this.txt)
-            disp.numbNow()
-            //display.innerHTML = `${txt}`    // Caso tenha sido o primeiro valor digitado, limpa a tela ***
+            disp.numbNow()                  // Caso tenha sido o primeiro valor digitado, limpa a tela ***
             return [this.txt, this.values, true]
         }
     }

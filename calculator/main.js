@@ -30,6 +30,18 @@ let percent = document.querySelector('.percent')
 let subtraction = document.querySelector('.subtraction')
 let sum = document.querySelector('.sum')
 
+subtraction.addEventListener('click', () => {
+    console.log('Subtração chamada');
+    console.log(`Inicio: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
+    let soma = new operBasic(txt, operation, values)
+    
+    let fini = soma.subtraction()
+    txt = fini[0]
+    operation = fini[1]
+    values = fini[2]
+    console.log(`Final: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
+})
+
 sum.addEventListener('click', () => {
     console.log('Soma chamada');
     console.log(`Inicio: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
