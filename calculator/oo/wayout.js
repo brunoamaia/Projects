@@ -6,8 +6,10 @@ var display = document.querySelector('div#display')
 var histor = document.querySelector('div#history')
 
 class exit {
-    constructor( txt, operation, values, result ) {
+    constructor( txt, operation='', pos_oper='', values='', pos_val='', result='' ) {
         this.operation = operation
+        this.pos_oper = pos_oper
+        this.pos_val = pos_val
         this.result = result
         this.txt = txt
         this.values = values
@@ -17,7 +19,6 @@ class exit {
     numbNow() {
         display.innerHTML = `${this.txt}`
     }
-
 }
 
 export default exit
