@@ -30,6 +30,17 @@ let percent = document.querySelector('.percent')
 let subtraction = document.querySelector('.subtraction')
 let sum = document.querySelector('.sum')
 
+percent.addEventListener('click', () => {
+    //console.log('Porcentagem chamada');
+    //console.log(`Inicio: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
+    let porcent = new operBasic(txt, operation, values)
+    
+    let fini = porcent.percenti()
+    txt = fini[0]
+    operation = fini[1]
+    values = fini[2]
+    //console.log(`Final: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
+})
 subtraction.addEventListener('click', () => {
     //console.log('Subtração chamada');
     //console.log(`Inicio: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
@@ -41,7 +52,6 @@ subtraction.addEventListener('click', () => {
     values = fini[2]
     //console.log(`Final: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
 })
-
 sum.addEventListener('click', () => {
     //console.log('Soma chamada');
     //console.log(`Inicio: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
