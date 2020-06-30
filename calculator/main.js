@@ -25,23 +25,34 @@ let info = window.document.getElementById('informations')
 
 // Function for Basic Operators 
 let division = document.querySelector('.division')
-let multiplication = document.querySelector('.multiplication')
-let percent = document.querySelector('.percent')
-let subtraction = document.querySelector('.subtraction')
-let sum = document.querySelector('.sum')
+let multiplicat = document.querySelector('.multiplication')
+let percenti = document.querySelector('.percent')
+let subtract = document.querySelector('.subtraction')
+let suma = document.querySelector('.sum')
 
-percent.addEventListener('click', () => {
+multiplicat.addEventListener('click', () => {
     //console.log('Porcentagem chamada');
     //console.log(`Inicio: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
-    let porcent = new operBasic(txt, operation, values)
+    let multpl = new operBasic(txt, operation, values)
     
-    let fini = porcent.percenti()
+    let fini = multpl.multiplication()
     txt = fini[0]
     operation = fini[1]
     values = fini[2]
     //console.log(`Final: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
 })
-subtraction.addEventListener('click', () => {
+percenti.addEventListener('click', () => {
+    //console.log('Porcentagem chamada');
+    //console.log(`Inicio: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
+    let porcent = new operBasic(txt, operation, values)
+    
+    let fini = porcent.percent()
+    txt = fini[0]
+    operation = fini[1]
+    values = fini[2]
+    //console.log(`Final: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
+})
+subtract.addEventListener('click', () => {
     //console.log('Subtração chamada');
     //console.log(`Inicio: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
     let soma = new operBasic(txt, operation, values)
@@ -52,7 +63,7 @@ subtraction.addEventListener('click', () => {
     values = fini[2]
     //console.log(`Final: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
 })
-sum.addEventListener('click', () => {
+suma.addEventListener('click', () => {
     //console.log('Soma chamada');
     //console.log(`Inicio: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
     let soma = new operBasic(txt, operation, values)
