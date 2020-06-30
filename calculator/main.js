@@ -4,6 +4,7 @@
 // Import functions fromd modules
 import digit from './oo/digitis.js';
 import operBasic from './oo/operatorsBasic.js'
+import clears from './oo/clear.js'
 /*import { point, resulte, signal } from './OO/operatorsSecond.js'
 import { clearAll, clearElement } from './OO/clear.js';
 import { validar_numero } from './OO/validation.js' */
@@ -14,7 +15,6 @@ let txt = ''                // Text of display
 let result = 0              // Value/information for principal display  
 let values = []             // Array of values
 let operation = []          // Array of operators
-let op = ''     // Operation calling - sum, subtraction, division, multiplication
 let ac = 0      // Operator insertion - whether it will be after or before the number
 let w = window.innerWidth;      // Width os window
 var arrowu = window.document.getElementById('arrowup')
@@ -23,7 +23,7 @@ let info = window.document.getElementById('informations')
 
 // Activations of modules/functions
 
-// Function for Basic Operators 
+// Functions for Operators 
 let divisi = document.querySelector('.division')
 let multiplicat = document.querySelector('.multiplication')
 let percenti = document.querySelector('.percent')
@@ -86,6 +86,13 @@ suma.addEventListener('click', () => {
     //console.log(`Final: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
 })
 
+// Other Functions
+let  clearElement = document.querySelector('.clearelement')
+
+clearElement.addEventListener('click', () => {
+    let clE = new clears(txt)
+    txt =  clE.clearElement()
+})
 
 // Function for digtis
 let num0 = document.querySelector('.zero')

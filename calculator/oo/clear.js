@@ -1,7 +1,37 @@
+//
 
-import { saida } from './wayout'
+import exit from './wayout.js'
 
-export default function clearAll() {
+class clears{
+    constructor(txt){
+        this.txt = txt
+    }
+
+    clearElement(){
+        this.txt = ''
+        let rese = new exit(this.txt)
+        rese.numbNow()                  // Caso tenha sido o primeiro valor digitado, limpa a tela ***
+        return this.txt    }
+}
+
+export default clears
+
+
+// Functions for animation of reset
+/*function transit1() {
+    histor.innerHTML = '........'
+}
+function transit2() {
+    histor.innerHTML = '......'
+}
+function transit3() {
+    histor.innerHTML = '....'
+}
+function transit4() {
+    histor.innerHTML = '..' 
+}*/
+
+/*export default function clearAll() {
     info.innerHTML=''
     display.innerHTML = 'Reseted!'
     histor.innerHTML = '..........'
@@ -21,22 +51,7 @@ export default function clearAll() {
     
     setTimeout(saida, 1200)
 }
-
 export default function clearElement() {
     txt = ''
     display.innerHTML = `${txt}`
-}
-
-// Functions for animation of reset
-function transit1() {
-    histor.innerHTML = '........'
-}
-function transit2() {
-    histor.innerHTML = '......'
-}
-function transit3() {
-    histor.innerHTML = '....'
-}
-function transit4() {
-    histor.innerHTML = '..' 
-}
+}*/
