@@ -12,6 +12,24 @@ class operBasic{
         //console.log(`txt = ${txt} \noperation = ${operation} \nvalues = ${values} \nresult = ${result}  `);
     }
 
+    division() {
+        //console.log('Subtraction');
+        let val = new validate(this.txt, this.operation, this.values)
+        let teste = val.test()
+        this.txt = teste[0]
+        this.values = teste[1]
+
+        if (teste[2] == true) {                  // Se o número for válido, insere o operador
+            this.operation = operadores('division', 1, this.operation)
+        } else {                            // Se o número Não for válido, verifica se existe oprador
+            this.operation = operadores('division', -1, this.operation)
+        }
+
+        let hist = new validate(this.txt, this.operation, this.values)
+        let actual = hist.historic()
+        return actual
+    }
+
     multiplication() {
         //console.log('Subtraction');
         let val = new validate(this.txt, this.operation, this.values)
@@ -107,7 +125,7 @@ function operadores(op, pos, oper) {   // Insertion of the operators in the righ
             oper[n-1] = ' - '
             return oper
         }
-    } else if (op == 'div') {
+    } else if (op == 'division') {
         if (pos != '-1') {
             oper.push(' / ')
             return oper

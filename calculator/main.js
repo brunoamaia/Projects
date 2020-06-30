@@ -24,12 +24,23 @@ let info = window.document.getElementById('informations')
 // Activations of modules/functions
 
 // Function for Basic Operators 
-let division = document.querySelector('.division')
+let divisi = document.querySelector('.division')
 let multiplicat = document.querySelector('.multiplication')
 let percenti = document.querySelector('.percent')
 let subtract = document.querySelector('.subtraction')
 let suma = document.querySelector('.sum')
 
+divisi.addEventListener('click', () => {
+    //console.log('Porcentagem chamada');
+    //console.log(`Inicio: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
+    let div = new operBasic(txt, operation, values)
+    
+    let fini = div.division()
+    txt = fini[0]
+    operation = fini[1]
+    values = fini[2]
+    //console.log(`Final: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
+})
 multiplicat.addEventListener('click', () => {
     //console.log('Porcentagem chamada');
     //console.log(`Inicio: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
