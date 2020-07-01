@@ -96,7 +96,10 @@ point.addEventListener('click', () => {
 })
 resulte.addEventListener('click', () => {
     let res = new auxFunctions(txt, operation, values)
-    res.resulte()
+    let neVal = res.resulte()
+    txt = neVal[0]
+    operation = neVal[1]
+    values = neVal[2]
 })
 sign.addEventListener('click', () => {
     let sig = new auxFunctions(txt)

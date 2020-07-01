@@ -45,10 +45,17 @@ function lista(now, operations, values) {              // Historic of the operat
     let resp = '' 
     if (n ==0 && m == 0) {
         resp = ''
-    }else {
+    }else if ( m == n ){
         for (let i = 0; i < m; i++) {
             resp += values[i] + operations[i]
         }
+    } else if (m > n){
+        for (let i = 0; i < n; i++) {
+            resp += values[i] + operations[i]
+        }
+        resp += values[m-1]
+    } else {
+        console.log("UÉ '-'");
     }
 
     // // Inserir setas para quano o histórico estiver muito grande
