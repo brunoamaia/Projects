@@ -4,9 +4,9 @@ import exit from './wayout.js'
 
 class validate {
     constructor(txt, operation='', values='') {
-        this.txt = txt
-        this.operation = operation
-        this.values = values
+        this.txt = txt                  // Value on the main display
+        this.operation = operation      // Operations array
+        this.values = values            // Values array
         //console.log('Validação');
         //console.log(`txt = ${txt} \noperation = ${operation} \nvalues = ${values} \nresult = ${result}  `);
     }

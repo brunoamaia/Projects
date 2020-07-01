@@ -10,7 +10,6 @@ class digit {
     }
     
     value() {
-        //console.log(`numero = ${this.numb}; histórico = ${this.hist}`);
         switch (this.numb) {
             case 0:
                 this.hist += 0

@@ -30,59 +30,44 @@ let subtract = document.querySelector('.subtraction')
 let suma = document.querySelector('.sum')
 
 divisi.addEventListener('click', () => {
-    //console.log('Porcentagem chamada');
-    //console.log(`Inicio: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
     let div = new operBasic(txt, operation, values)
     
     let fini = div.division()
     txt = fini[0]
     operation = fini[1]
     values = fini[2]
-    //console.log(`Final: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
 })
 multiplicat.addEventListener('click', () => {
-    //console.log('Porcentagem chamada');
-    //console.log(`Inicio: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
     let multpl = new operBasic(txt, operation, values)
     
     let fini = multpl.multiplication()
     txt = fini[0]
     operation = fini[1]
     values = fini[2]
-    //console.log(`Final: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
 })
 percenti.addEventListener('click', () => {
-    //console.log('Porcentagem chamada');
-    //console.log(`Inicio: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
     let porcent = new operBasic(txt, operation, values)
     
     let fini = porcent.percent()
     txt = fini[0]
     operation = fini[1]
     values = fini[2]
-    //console.log(`Final: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
 })
 subtract.addEventListener('click', () => {
-    //console.log('Subtração chamada');
-    //console.log(`Inicio: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
     let soma = new operBasic(txt, operation, values)
     
     let fini = soma.subtraction()
     txt = fini[0]
     operation = fini[1]
     values = fini[2]
-    //console.log(`Final: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
 })
 suma.addEventListener('click', () => {
-    //console.log('Soma chamada');
-    //console.log(`Inicio: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
     let soma = new operBasic(txt, operation, values)
     
     let fini = soma.sum()
     txt = fini[0]
     operation = fini[1]
     values = fini[2]
-    //console.log(`Final: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
 })
 
 // Functions Aux

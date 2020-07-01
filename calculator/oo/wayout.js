@@ -6,23 +6,19 @@ var display = document.querySelector('div#display')
 var histor = document.querySelector('div#history')
 
 class exit {
-    constructor( txt, operation='', values='', result='', notnumber=0 ) {
-        this.operation = operation
-        this.result = result
-        this.txt = txt
-        this.values = values
-        this.notnumber = notnumber
+    constructor( txt, operation='', values='') {
+        this.txt = txt                  // Value on the main display
+        this.operation = operation      // Operations array
+        this.values = values            // Values array
         //console.log('Saida');
         //console.log(`txt = ${txt} \noperation = ${operation} \nvalues = ${values} \nresult = ${result}  `);
     }
 
     numbNow() {
-        //console.log('Saida - Valor no dispaly');
         display.innerHTML = `${this.txt}`
     }
 
     operators() {
-        //console.log('Saida - Historico');
         let zz = lista(this.txt, this.operation, this.values)
         return zz
     }
@@ -39,7 +35,6 @@ class exit {
 export default exit
 
 function lista(now, operations, values) {              // Historic of the operationss
-   // console.log('Lista - chamada');
     let n = operations.length
     let m = values.length
     let resp = '' 
