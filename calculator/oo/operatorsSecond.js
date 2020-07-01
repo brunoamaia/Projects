@@ -13,7 +13,6 @@ class auxFunctions {
     
     point() {
         let n = this.txt.length
-        console.log(n);
         if (this.txt.indexOf('.') == -1) {
             if (n == 0) {
                 this.txt = '0.'
@@ -28,6 +27,14 @@ class auxFunctions {
             error.numbNow()
             return this.txt
         }
+    }
+
+    signal() {
+        let aux = -1 * Number(this.txt)
+        this.txt = String(aux)
+        let disp = new exit(this.txt)
+        disp.numbNow()
+        return this.txt
     }
 }
 export default auxFunctions
