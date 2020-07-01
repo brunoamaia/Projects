@@ -7,6 +7,11 @@ class clears{
         this.txt = txt
     }
 
+    clearAll() {
+        let clAll = new exit(this.txt)
+        clAll.reset()
+    }
+
     clearElement(){
         this.txt = ''
         let rese = new exit(this.txt)

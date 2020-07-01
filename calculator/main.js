@@ -15,7 +15,6 @@ let txt = ''                // Text of display
 let result = 0              // Value/information for principal display  
 let values = []             // Array of values
 let operation = []          // Array of operators
-let ac = 0      // Operator insertion - whether it will be after or before the number
 let w = window.innerWidth;      // Width os window
 var arrowu = window.document.getElementById('arrowup')
 var arrowd = window.document.getElementById('arrowdown')
@@ -87,8 +86,17 @@ suma.addEventListener('click', () => {
 })
 
 // Other Functions
-let  clearElement = document.querySelector('.clearelement')
+let  clearAl = document.querySelector('.clearAll')
+let  clearElement = document.querySelector('.clearElement')
 
+clearAl.addEventListener('click', () => {
+    txt = ''
+    result = 0
+    values = []
+    operation = []
+    let clA = new clears(txt)
+    let reset =  clA.clearAll()
+})
 clearElement.addEventListener('click', () => {
     let clE = new clears(txt)
     txt =  clE.clearElement()

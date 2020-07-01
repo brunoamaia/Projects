@@ -26,6 +26,15 @@ class exit {
         let zz = lista(this.txt, this.operation, this.values)
         return zz
     }
+
+    reset() {
+        display.innerHTML = 'Reseted !!!'
+        transit1()    //Animation reseted
+        setTimeout(transit2, 200)
+        setTimeout(transit3, 400)
+        setTimeout(transit4, 600)
+        setTimeout(resd, 800)
+    }
 }
 export default exit
 
@@ -57,7 +66,22 @@ function lista(now, operations, values) {              // Historic of the operat
     return [now, operations, values]
 } 
 
-
+function transit1() {
+    histor.innerHTML = '........'
+}
+function transit2() {
+    histor.innerHTML = '......'
+}
+function transit3() {
+    histor.innerHTML = '....'
+}
+function transit4() {
+    histor.innerHTML = '..' 
+}
+function resd() {
+    display.innerHTML = ''
+    histor.innerHTML = ''
+}
 
 /*export default function saida () {             // Control of the information that will be shown
     let n = String(result)
