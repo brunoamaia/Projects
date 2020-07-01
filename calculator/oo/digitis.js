@@ -3,11 +3,10 @@
 
 import exit from './wayout.js'
 
-
 class digit {
     constructor(numb, hist) {
-        this.numb = numb
-        this.hist = hist
+        this.numb = numb        // Value of button
+        this.hist = hist        // Value of display
     }
     
     value() {

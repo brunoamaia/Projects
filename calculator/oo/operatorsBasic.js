@@ -5,9 +5,9 @@ import validate from './validation.js'
 
 class operBasic{
     constructor( txt, operation='', values='') {
-        this.txt = txt
-        this.operation = operation
-        this.values = values
+        this.txt = txt                  // Value on the main display
+        this.operation = operation      // Operations array
+        this.values = values            // Values array
         //console.log('Operadores');
         //console.log(`txt = ${txt} \noperation = ${operation} \nvalues = ${values} \nresult = ${result}  `);
     }

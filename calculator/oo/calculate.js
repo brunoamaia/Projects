@@ -1,12 +1,12 @@
-// 
+// Part responsible for application calculations
 
-var info = document.querySelector('div#informations')
+var info = document.querySelector('div#informations') // print informations in the page
 
 class calculator{
     constructor(txt, operation='', values='') {
-        this.txt = txt
-        this.operation = operation
-        this.values = values
+        this.txt = txt                  // Value on the main display
+        this.operation = operation      // Operations array
+        this.values = values            // Values array
         //console.log('Calculate');
         //console.log(`txt = ${txt} \noperation = ${operation} \nvalues = ${values} \nresult = ${result}  `);
     }
