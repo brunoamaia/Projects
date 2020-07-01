@@ -87,11 +87,16 @@ suma.addEventListener('click', () => {
 
 // Functions Aux
 let point = document.querySelector('.point')
+let resulte = document.querySelector('.resulte')
 let sign = document.querySelector('.signal')
 
 point.addEventListener('click', () => {
     let pont = new auxFunctions(txt)
     txt = pont.point()
+})
+resulte.addEventListener('click', () => {
+    let res = new auxFunctions(txt, operation, values)
+    res.resulte()
 })
 sign.addEventListener('click', () => {
     let sig = new auxFunctions(txt)

@@ -1,6 +1,8 @@
 // Functions 
 
 import exit from './wayout.js'
+import validate from './validation.js'
+import calculator from './calculate.js'
 
 class auxFunctions {
     constructor( txt, operation='', values='') {
@@ -27,6 +29,33 @@ class auxFunctions {
             error.numbNow()
             return this.txt
         }
+    }
+
+    resulte() {
+        let val = new validate(this.txt, this.operation, this.values)
+        let val1 = val.test()
+
+        this.txt = val1[0]
+        this.values = val1[1]
+        let nVal = val1[2]
+        console.log(`\nValidate => 1=${this.txt}; 2=${this.values}; 3=${nVal}`);
+
+        if (nVal == true) {
+            let calc = new calculator(this.txt, this.operation, this.values)
+            this.txt = calc.operations()
+
+            console.log(`Calculado => 1=${this.txt}`);
+        } else {
+            let err = new exit('Insert a Number!')
+            err.numbNow()
+        }
+
+        let out = new exit(this.txt, this.operation, this.values)
+        console.log(out);
+        out.numbNow()
+        out.operators()
+
+        /*saida()*/
     }
 
     signal() {
