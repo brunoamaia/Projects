@@ -4,10 +4,10 @@
 // Import functions fromd modules
 import digit from './oo/digitis.js';
 import operBasic from './oo/operatorsBasic.js'
+import auxFunctions from './oo/operatorsSecond.js'
 import clears from './oo/clear.js'
 /*import { point, resulte, signal } from './OO/operatorsSecond.js'
-import { clearAll, clearElement } from './OO/clear.js';
-import { validar_numero } from './OO/validation.js' */
+import { clearAll, clearElement } from './OO/clear.js';*/
 
 
 // Create vars 
@@ -83,6 +83,14 @@ suma.addEventListener('click', () => {
     operation = fini[1]
     values = fini[2]
     //console.log(`Final: \n txt = ${txt} \n operador = ${operation} \nvalor = ${values}`);
+})
+
+// Functions Aux
+let point = document.querySelector('.point')
+
+point.addEventListener('click', () => {
+    let pont = new auxFunctions(txt)
+    txt = pont.point()
 })
 
 // Other Functions
