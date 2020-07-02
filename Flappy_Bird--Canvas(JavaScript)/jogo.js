@@ -83,6 +83,7 @@ const chao = {
   },
 };
 
+// Flappy Bird
 const flappyBird = {
   spriteX: 0,
   spriteY: 0,
@@ -95,6 +96,9 @@ const flappyBird = {
   pulo: 4.6,
 
   atualiza(){
+    if (colisaoChao(flappyBird, chao) == true) {
+      mudaParaTela(Telas.Inicio)
+    }
     flappyBird.velocidade += this.gravidade
     flappyBird.y += flappyBird.velocidade
   },
@@ -114,6 +118,17 @@ const flappyBird = {
   }
 }
 
+function colisaoChao (flappyBird, chao) {
+  const flappyColisaoChao =flappyBird.y + flappyBird.altura
+  const chaoColisao = chao.y
+
+  if (flappyColisaoChao >= chaoColisao ) {
+    return true
+  }
+  return false
+}
+
+
 // Telas 
 let telaAtiva = {}
 function mudaParaTela(novaTela) {
@@ -122,6 +137,9 @@ function mudaParaTela(novaTela) {
 const Telas = {
   Inicio: {
     atualiza() {
+      flappyBird.x = 10
+      flappyBird.y = 50
+      flappyBird.velocidade = 0
     },
     click() {
       mudaParaTela(Telas.Jogo)
