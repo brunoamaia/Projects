@@ -107,27 +107,36 @@ const canos = {
   h: 400,
   x: 100,
   y: 130,
-  espaco: 90,
-  pares: [{x: 150, y: 10},{x: 250, y: 260}],
+  espaco: 80,
+  pares: [],
 
   atualiza() {
     const passouSemFrames = frames%100 === 0
     if (passouSemFrames) {
-      //console.log('PAssou 100');
+      canos.pares.push({
+        x: canvas.width,
+        y: Math.random()*220 + 35
+      })
     }
+
+    canos.pares.forEach(function(par){
+      par.x += -2
+
+      if ( (par.x + canos.w) < 0) {
+        canos.pares.shift()
+      }
+    })
 
   },
 
   desenha() {
     canos.pares.forEach(function(par){
 
-      let posicao = par.x
-      let alt = Math.random()*235 + 20
       contexto.drawImage(     // Cano de Cima
         sprites,
         canos.uX, canos.uY,
         canos.w, canos.h,
-        posicao, (alt - canos.h),
+        par.x, (par.y - canos.h),
         canos.w, canos.h
       )
 
@@ -135,7 +144,7 @@ const canos = {
         sprites,
         canos.dX, canos.dY,
         canos.w, canos.h,
-        posicao, (alt + canos.espaco),
+        par.x, (par.y + canos.espaco),
         canos.w, canos.h
       )
     })
