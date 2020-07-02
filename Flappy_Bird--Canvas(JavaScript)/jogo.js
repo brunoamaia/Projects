@@ -92,6 +92,7 @@ const flappyBird = {
   y: 50,
   gravidade: 0.25,
   velocidade: 0,
+  pulo: 4.6,
 
   atualiza(){
     flappyBird.velocidade += this.gravidade
@@ -106,6 +107,10 @@ const flappyBird = {
       flappyBird.x, flappyBird.y,
       flappyBird.largura, flappyBird.altura,
     );
+  },
+
+  pula() {
+    flappyBird.velocidade = - flappyBird.pulo
   }
 }
 
@@ -132,6 +137,9 @@ const Telas = {
   Jogo: {
     atualiza() {
       flappyBird.atualiza()
+    },
+    click() {
+      flappyBird.pula()
     },
     desenha() {
       planoDeFundo.desenha();
