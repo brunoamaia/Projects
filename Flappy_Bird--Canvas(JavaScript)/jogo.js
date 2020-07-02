@@ -5,6 +5,9 @@ sprites.src = './sprites.png';
 
 const canvas = document.querySelector('canvas');
 const contexto = canvas.getContext('2d');
+const somHit = new Audio()
+somHit.src= './efeitos/hit.wav'
+
 
 // Tela de início
 const mensagemGetReady = {
@@ -64,6 +67,14 @@ const chao = {
   altura: 112,
   x: 0,
   y: canvas.height - 112,
+
+  atualiza() {    // Animação do chão andando infinito
+    chao.x -= 1
+    if (chao.x <= -112) {
+      chao.x = 0
+    }
+  },
+
   desenha() {
     contexto.drawImage(
       sprites,
@@ -97,7 +108,11 @@ const flappyBird = {
 
   atualiza(){
     if (colisaoChao(flappyBird, chao) == true) {
-      mudaParaTela(Telas.Inicio)
+      somHit.play()
+      setTimeout(()=>{
+        mudaParaTela(Telas.Inicio)
+      }, 600)
+      return
     }
     flappyBird.velocidade += this.gravidade
     flappyBird.y += flappyBird.velocidade
@@ -137,6 +152,7 @@ function mudaParaTela(novaTela) {
 const Telas = {
   Inicio: {
     atualiza() {
+      chao.atualiza()
       flappyBird.x = 10
       flappyBird.y = 50
       flappyBird.velocidade = 0
@@ -155,6 +171,7 @@ const Telas = {
   Jogo: {
     atualiza() {
       flappyBird.atualiza()
+      chao.atualiza()
     },
     click() {
       flappyBird.pula()
