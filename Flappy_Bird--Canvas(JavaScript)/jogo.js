@@ -7,6 +7,8 @@ const canvas = document.querySelector('canvas');
 const contexto = canvas.getContext('2d');
 const somHit = new Audio()
 somHit.src= './efeitos/hit.wav'
+const somCaiu = new Audio()
+somCaiu.src = './efeitos/caiu.wav'
 
 let frames = 0
 
@@ -122,11 +124,33 @@ const canos = {
     canos.pares.forEach(function(par){
       par.x += -2
 
-      if ( (par.x + canos.w) < 0) {
+      if (canos.colisaoCano(par)) {
+        somCaiu.play()
+        mudaParaTela(Telas.Inicio)
+      }
+
+      if ( (par.x + canos.w) < 0) {   // Remove os canos que já sairan da tela 
         canos.pares.shift()
       }
     })
 
+  },
+
+  colisaoCano(par) {
+    ///   Colisão com os canos
+    if ( (flappyBird.x + flappyBird.largura) >= par.x ) {     // Início do Cano
+      if (flappyBird.x <= (par.x + canos.w-5)) {              // Final do Cano
+
+        if (flappyBird.y < par.y) {                           // Cano de Cima 
+          return true
+        }
+
+        if (flappyBird.y+flappyBird.altura > par.y+canos.espaco) {  // Cano  de Baixo
+          return true
+        }
+      }
+    }
+    return false
   },
 
   desenha() {
@@ -148,6 +172,10 @@ const canos = {
         canos.w, canos.h
       )
     })
+  },
+
+  reset() {
+    canos.pares = []
   }
 
 }
@@ -242,23 +270,23 @@ const Telas = {
   Inicio: {
     atualiza() {
       flappyBird.reset()
-      canos.atualiza()
       chao.atualiza()
+      canos.reset()
     },
     click() {
       mudaParaTela(Telas.Jogo)
     },
     desenha(){
       planoDeFundo.desenha();
-      canos.desenha()
       chao.desenha();
       flappyBird.desenha();
-      //mensagemGetReady.desenha()
+      mensagemGetReady.desenha()
     }
   },
-
+  
   Jogo: {
     atualiza() {
+      canos.atualiza()
       chao.atualiza()
       flappyBird.atualiza()
     },
@@ -267,6 +295,7 @@ const Telas = {
     },
     desenha() {
       planoDeFundo.desenha();
+      canos.desenha()
       chao.desenha();
       flappyBird.desenha();
     }
