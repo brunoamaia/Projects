@@ -8,6 +8,8 @@ const contexto = canvas.getContext('2d');
 const somHit = new Audio()
 somHit.src= './efeitos/hit.wav'
 
+let frames = 0
+
 
 // Tela de início
 const mensagemGetReady = {
@@ -37,6 +39,7 @@ const planoDeFundo = {
   altura: 204,
   x: 0,
   y: canvas.height - 204,
+
   desenha() {
     contexto.fillStyle = '#70c5ce';
     contexto.fillRect(0,0, canvas.width, canvas.height)
@@ -95,6 +98,7 @@ const chao = {
 };
 
 // Flappy Bird
+let anim = 0
 const flappyBird = {
   spriteX: 0,
   spriteY: 0,
@@ -105,6 +109,7 @@ const flappyBird = {
   gravidade: 0.25,
   velocidade: 0,
   pulo: 4.6,
+  movimentoAsas: [0, 26, 52],
 
   atualiza(){
     if (colisaoChao(flappyBird, chao) == true) {
@@ -119,13 +124,34 @@ const flappyBird = {
   },
 
   desenha() {
+    let mov = flappyBird.movimentaAsasFlappy()
+
     contexto.drawImage(
       sprites,
-      flappyBird.spriteX, flappyBird.spriteY, // Sprite X, Sprite Y
+      flappyBird.spriteX, flappyBird.movimentoAsas[mov], // Sprite X, Sprite Y
       flappyBird.largura, flappyBird.altura, // Tamanho do recorte na sprite
       flappyBird.x, flappyBird.y,
       flappyBird.largura, flappyBird.altura,
     );
+  },
+
+  movimentaAsasFlappy() {
+    let velBatidaAsas = 6    // Quanto maior o valor, mais lento é o movimento
+    let act = ''
+    if (anim >= velBatidaAsas*3) {
+      anim = -1
+    }
+
+    if (anim < velBatidaAsas) {
+      act = 0
+    } else if (anim < velBatidaAsas*2) {
+      act = 1
+    } else {
+      act = 2
+    }
+
+    anim += 1
+    return act
   },
 
   pula() {
@@ -170,8 +196,8 @@ const Telas = {
 
   Jogo: {
     atualiza() {
-      flappyBird.atualiza()
       chao.atualiza()
+      flappyBird.atualiza()
     },
     click() {
       flappyBird.pula()
@@ -188,6 +214,7 @@ function loop() {
   telaAtiva.atualiza()
   telaAtiva.desenha()
 
+  frames += 1
   requestAnimationFrame(loop);
 }
 
