@@ -6,6 +6,25 @@ sprites.src = './sprites.png';
 const canvas = document.querySelector('canvas');
 const contexto = canvas.getContext('2d');
 
+// Tela de início
+const mensagemGetReady = {
+  sX: 134,
+  sY: 0,
+  w: 174,
+  h: 152,
+  x: (canvas.width/2) - 174/2,
+  y: 50,
+
+  desenha() {
+    contexto.drawImage(
+      sprites,
+      mensagemGetReady.sX, mensagemGetReady.sY,
+      mensagemGetReady.w, mensagemGetReady.h,
+      mensagemGetReady.x, mensagemGetReady.y,
+      mensagemGetReady.w, mensagemGetReady.h
+    );
+  }
+}
 
 // [Plano de Fundo]
 const planoDeFundo = {
@@ -90,14 +109,41 @@ const flappyBird = {
   }
 }
 
-function loop() {
-  flappyBird.atualiza()
-  planoDeFundo.desenha();
-  chao.desenha();
-  flappyBird.desenha();
+// Telas 
+let telaAtiva = {}
+function mudaParaTela(novaTela) {
+  telaAtiva = novaTela;
+}
+const Telas = {
+  Inicio: {
+    atualiza() {
+    },
+    desenha(){
+      planoDeFundo.desenha();
+      chao.desenha();
+      flappyBird.desenha();
+      mensagemGetReady.desenha()
+    }
+  },
 
+  Jogo: {
+    atualiza() {
+      flappyBird.atualiza()
+    },
+    desenha() {
+      planoDeFundo.desenha();
+      chao.desenha();
+      flappyBird.desenha();
+    }
+  }
+}
+
+function loop() {
+  telaAtiva.atualiza()
+  telaAtiva.desenha()
 
   requestAnimationFrame(loop);
 }
 
+mudaParaTela(Telas.Inicio)
 loop();
