@@ -19,7 +19,7 @@ const mensagemGetReady = {
   h: 152,
   x: (canvas.width/2) - 174/2,
   y: 50,
-
+  
   desenha() {
     contexto.drawImage(
       sprites,
@@ -97,6 +97,52 @@ const chao = {
   },
 };
 
+//  Canos 
+const canos = {
+  uX: 52,
+  uY: 169,
+  dX: 0,
+  dY: 169,
+  w: 52,
+  h: 400,
+  x: 100,
+  y: 130,
+  espaco: 90,
+  pares: [{x: 150, y: 10},{x: 250, y: 260}],
+
+  atualiza() {
+    const passouSemFrames = frames%100 === 0
+    if (passouSemFrames) {
+      //console.log('PAssou 100');
+    }
+
+  },
+
+  desenha() {
+    canos.pares.forEach(function(par){
+
+      let posicao = par.x
+      let alt = Math.random()*235 + 20
+      contexto.drawImage(     // Cano de Cima
+        sprites,
+        canos.uX, canos.uY,
+        canos.w, canos.h,
+        posicao, (alt - canos.h),
+        canos.w, canos.h
+      )
+
+      contexto.drawImage(     // Cano de Baixo
+        sprites,
+        canos.dX, canos.dY,
+        canos.w, canos.h,
+        posicao, (alt + canos.espaco),
+        canos.w, canos.h
+      )
+    })
+  }
+
+}
+
 // Flappy Bird
 let anim = 0
 const flappyBird = {
@@ -109,7 +155,7 @@ const flappyBird = {
   gravidade: 0.25,
   velocidade: 0,
   pulo: 4.6,
-  movimentoAsas: [0, 26, 52],
+  movimentoAsas: [0, 26, 52, 26],
 
   atualiza(){
     if (colisaoChao(flappyBird, chao) == true) {
@@ -136,18 +182,20 @@ const flappyBird = {
   },
 
   movimentaAsasFlappy() {
-    let velBatidaAsas = 6    // Quanto maior o valor, mais lento é o movimento
+    let velBatidaAsas = 5    // Quanto maior o valor, mais lento é o movimento
     let act = ''
-    if (anim >= velBatidaAsas*3) {
-      anim = -1
+    if (anim >= velBatidaAsas*4) {
+      anim = 0
     }
 
     if (anim < velBatidaAsas) {
       act = 0
     } else if (anim < velBatidaAsas*2) {
       act = 1
-    } else {
+    } else if (anim < velBatidaAsas*3) {
       act = 2
+    } else {
+      act = 3
     }
 
     anim += 1
@@ -156,6 +204,12 @@ const flappyBird = {
 
   pula() {
     flappyBird.velocidade = - flappyBird.pulo
+  },
+  
+  reset() {
+    flappyBird.x = 10
+    flappyBird.y = 50
+    flappyBird.velocidade = 0
   }
 }
 
@@ -178,19 +232,19 @@ function mudaParaTela(novaTela) {
 const Telas = {
   Inicio: {
     atualiza() {
+      flappyBird.reset()
+      canos.atualiza()
       chao.atualiza()
-      flappyBird.x = 10
-      flappyBird.y = 50
-      flappyBird.velocidade = 0
     },
     click() {
       mudaParaTela(Telas.Jogo)
     },
     desenha(){
       planoDeFundo.desenha();
+      canos.desenha()
       chao.desenha();
       flappyBird.desenha();
-      mensagemGetReady.desenha()
+      //mensagemGetReady.desenha()
     }
   },
 
