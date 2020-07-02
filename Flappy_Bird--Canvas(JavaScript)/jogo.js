@@ -118,6 +118,9 @@ const Telas = {
   Inicio: {
     atualiza() {
     },
+    click() {
+      mudaParaTela(Telas.Jogo)
+    },
     desenha(){
       planoDeFundo.desenha();
       chao.desenha();
@@ -145,5 +148,10 @@ function loop() {
   requestAnimationFrame(loop);
 }
 
-mudaParaTela(Telas.Inicio)
+window.addEventListener('click', function(){
+  if (telaAtiva.click) {
+    telaAtiva.click()
+  }
+})
+mudaParaTela(Telas.Inicio)    // Carregar a Tela inicial ao abrir a página 
 loop();
