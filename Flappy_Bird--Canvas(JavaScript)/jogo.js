@@ -13,7 +13,7 @@ somCaiu.src = './efeitos/caiu.wav'
 let frames = 0
 
 
-// Tela de início
+// [Tela de início]
 const mensagemGetReady = {
   sX: 134,
   sY: 0,
@@ -99,7 +99,7 @@ const chao = {
   },
 };
 
-//  Canos 
+//  [Canos] 
 const canos = {
   uX: 52,
   uY: 169,
@@ -180,7 +180,7 @@ const canos = {
 
 }
 
-// Flappy Bird
+// [Flappy Bird]
 let anim = 0
 const flappyBird = {
   spriteX: 0,
@@ -261,7 +261,7 @@ function colisaoChao (flappyBird, chao) {
 }
 
 
-// Telas 
+// [Telas] 
 let telaAtiva = {}
 function mudaParaTela(novaTela) {
   telaAtiva = novaTela;
@@ -301,7 +301,7 @@ const Telas = {
     }
   },
 
-  Pontuacao: {
+  Final: {
     atualiza(){
 
     },
@@ -309,7 +309,10 @@ const Telas = {
 
     },
     desenha() {
-      
+      planoDeFundo.desenha();
+      canos.desenha()
+      chao.desenha();
+      flappyBird.desenha();
     }
   }
 }
