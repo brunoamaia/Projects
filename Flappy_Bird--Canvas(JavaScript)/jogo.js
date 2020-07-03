@@ -299,6 +299,18 @@ const Telas = {
       chao.desenha();
       flappyBird.desenha();
     }
+  },
+
+  Pontuacao: {
+    atualiza(){
+
+    },
+    click() {
+
+    },
+    desenha() {
+      
+    }
   }
 }
 
