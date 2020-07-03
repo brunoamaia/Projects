@@ -15,7 +15,7 @@ let frames = 0
 
 // [Tela de início]
 const mensagemGetReady = {
-  sX: 134,
+  pX: 134,
   sY: 0,
   w: 174,
   h: 152,
@@ -25,11 +25,55 @@ const mensagemGetReady = {
   desenha() {
     contexto.drawImage(
       sprites,
-      mensagemGetReady.sX, mensagemGetReady.sY,
+      mensagemGetReady.pX, mensagemGetReady.sY,
       mensagemGetReady.w, mensagemGetReady.h,
       mensagemGetReady.x, mensagemGetReady.y,
       mensagemGetReady.w, mensagemGetReady.h
     );
+  }
+}
+
+// [Tela de Pontuação]
+const mensagemPlacar = {
+  // PLacar
+  pX: 134,
+  pY: 152,
+  pw: 226,
+  ph: 202,
+  px: (canvas.width/2) - 174/2,
+  py: 50,
+
+  //medalhas
+  medX: [0, 0, 48, 48],
+  medY: [124, 78, 124, 78],
+  medW: 44,
+  medH: 44,
+  MedPosX: 100,
+  MedPosY: 137,
+
+  
+  desenha() {
+    contexto.drawImage(   // Placar 
+      sprites,
+      mensagemPlacar.pX, mensagemPlacar.pY,
+      mensagemPlacar.pw, mensagemPlacar.ph,
+      mensagemPlacar.px, mensagemPlacar.py,
+      mensagemPlacar.pw, mensagemPlacar.ph
+    );
+    mensagemPlacar.medalha()
+  },
+  
+  medalha() {
+    console.log('Esolhe a medalha');
+    let medalha = 1
+    contexto.drawImage(   // Medalha 
+      sprites,
+      mensagemPlacar.medX[medalha], mensagemPlacar.medY[medalha],
+      mensagemPlacar.medW, mensagemPlacar.medH,
+      mensagemPlacar.MedPosX, mensagemPlacar.MedPosY,
+      mensagemPlacar.medW, mensagemPlacar.medH
+    );
+
   }
 }
 
@@ -64,40 +108,6 @@ const planoDeFundo = {
   },
 };
 
-// [Chao]
-const chao = {
-  spriteX: 0,
-  spriteY: 610,
-  largura: 224,
-  altura: 112,
-  x: 0,
-  y: canvas.height - 112,
-
-  atualiza() {    // Animação do chão andando infinito
-    chao.x -= 1
-    if (chao.x <= -112) {
-      chao.x = 0
-    }
-  },
-
-  desenha() {
-    contexto.drawImage(
-      sprites,
-      chao.spriteX, chao.spriteY,
-      chao.largura, chao.altura,
-      chao.x, chao.y,
-      chao.largura, chao.altura,
-    );
-
-    contexto.drawImage(
-      sprites,
-      chao.spriteX, chao.spriteY,
-      chao.largura, chao.altura,
-      (chao.x + chao.largura), chao.y,
-      chao.largura, chao.altura,
-    );
-  },
-};
 
 //  [Canos] 
 const canos = {
@@ -126,7 +136,7 @@ const canos = {
 
       if (canos.colisaoCano(par)) {
         somCaiu.play()
-        mudaParaTela(Telas.Inicio)
+        mudaParaTela(Telas.Final)
       }
 
       if ( (par.x + canos.w) < 0) {   // Remove os canos que já sairan da tela 
@@ -180,6 +190,41 @@ const canos = {
 
 }
 
+// [Chao]
+const chao = {
+  spriteX: 0,
+  spriteY: 610,
+  largura: 224,
+  altura: 112,
+  x: 0,
+  y: canvas.height - 112,
+
+  atualiza() {    // Animação do chão andando infinito
+    chao.x -= 1
+    if (chao.x <= -112) {
+      chao.x = 0
+    }
+  },
+
+  desenha() {
+    contexto.drawImage(
+      sprites,
+      chao.spriteX, chao.spriteY,
+      chao.largura, chao.altura,
+      chao.x, chao.y,
+      chao.largura, chao.altura,
+    );
+
+    contexto.drawImage(
+      sprites,
+      chao.spriteX, chao.spriteY,
+      chao.largura, chao.altura,
+      (chao.x + chao.largura), chao.y,
+      chao.largura, chao.altura,
+    );
+  },
+};
+
 // [Flappy Bird]
 let anim = 0
 const flappyBird = {
@@ -197,9 +242,7 @@ const flappyBird = {
   atualiza(){
     if (colisaoChao(flappyBird, chao) == true) {
       somHit.play()
-      setTimeout(()=>{
-        mudaParaTela(Telas.Inicio)
-      }, 600)
+      mudaParaTela(Telas.Final)
       return
     }
     flappyBird.velocidade += this.gravidade
@@ -303,16 +346,19 @@ const Telas = {
 
   Final: {
     atualiza(){
-
+      flappyBird.atualiza()
     },
     click() {
-
+      setTimeout(()=>{
+        mudaParaTela(Telas.Inicio)
+      }, 600)
     },
     desenha() {
       planoDeFundo.desenha();
       canos.desenha()
       chao.desenha();
       flappyBird.desenha();
+      mensagemPlacar.desenha()
     }
   }
 }
