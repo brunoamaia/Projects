@@ -5,10 +5,15 @@ sprites.src = './sprites.png';
 
 const canvas = document.querySelector('canvas');
 const contexto = canvas.getContext('2d');
-const somHit = new Audio()
-somHit.src= './efeitos/hit.wav'
 const somCaiu = new Audio()
 somCaiu.src = './efeitos/caiu.wav'
+const somHit = new Audio()
+somHit.src= './efeitos/hit.wav'
+const somPonto = new Audio()
+somPonto.src = './efeitos/ponto.wav'
+const somPulo = new Audio()
+somPulo.src= './efeitos/pulo.wav'
+
 
 let frames = 0
 
@@ -40,7 +45,7 @@ const mensagemPlacar = {
   pY: 152,
   pw: 226,
   ph: 202,
-  px: (canvas.width/2) - 174/2,
+  px: (canvas.width/2) - 226/2,
   py: 50,
 
   //medalhas
@@ -48,7 +53,7 @@ const mensagemPlacar = {
   medY: [124, 78, 124, 78],
   medW: 44,
   medH: 44,
-  MedPosX: 100,
+  MedPosX: 73,
   MedPosY: 137,
 
   
@@ -285,6 +290,7 @@ const flappyBird = {
 
   pula() {
     flappyBird.velocidade = - flappyBird.pulo
+    somPulo.play()
   },
   
   reset() {
