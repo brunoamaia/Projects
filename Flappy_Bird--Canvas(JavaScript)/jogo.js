@@ -171,6 +171,7 @@ const canos = {
         }
 
         if (flappyBird.x >= par.x + canos.w-3){     // Passou sem colidir
+          somPonto.play()
           pontuacao += 1
         }
       }
@@ -373,7 +374,10 @@ const Telas = {
 
   Final: {
     atualiza(){
-      flappyBird.atualiza()
+      // Pousar no chão 
+      if (flappyBird.y + flappyBird.altura < chao.y ) {
+        flappyBird.atualiza()
+      }
     },
     click() {
       setTimeout(()=>{
