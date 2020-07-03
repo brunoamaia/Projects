@@ -19,6 +19,7 @@ somPulo.src= './efeitos/pulo.wav'
 
 let frames = 0
 let pontuacao = 0
+let ranking = []
 
 
 // [Tela de início]
