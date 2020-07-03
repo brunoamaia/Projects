@@ -5,6 +5,8 @@ sprites.src = './sprites.png';
 
 const canvas = document.querySelector('canvas');
 const contexto = canvas.getContext('2d');
+
+//    Audios
 const somCaiu = new Audio()
 somCaiu.src = './efeitos/caiu.wav'
 const somHit = new Audio()
@@ -310,6 +312,16 @@ function colisaoChao (flappyBird, chao) {
   return false
 }
 
+// [Pontos]
+const pontos = {
+  desenha(){
+    let pontos = 12
+    contexto.font = "50px serif"
+    contexto.fillStyle = "#000"
+    contexto.fillText(pontos, 150, 60)
+  }
+  
+}
 
 // [Telas] 
 let telaAtiva = {}
@@ -348,6 +360,7 @@ const Telas = {
       canos.desenha()
       chao.desenha();
       flappyBird.desenha();
+      pontos.desenha()
     }
   },
 
