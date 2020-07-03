@@ -18,6 +18,7 @@ somPulo.src= './efeitos/pulo.wav'
 
 
 let frames = 0
+let pontuacao = 0
 
 
 // [Tela de início]
@@ -37,6 +38,7 @@ const mensagemGetReady = {
       mensagemGetReady.x, mensagemGetReady.y,
       mensagemGetReady.w, mensagemGetReady.h
     );
+    pontuacao = 0
   }
 }
 
@@ -71,7 +73,7 @@ const mensagemPlacar = {
   },
   
   medalha() {
-    console.log('Esolhe a medalha');
+    //console.log('Esolhe a medalha');
     let medalha = 1
     contexto.drawImage(   // Medalha 
       sprites,
@@ -126,7 +128,8 @@ const canos = {
   h: 400,
   x: 100,
   y: 130,
-  espaco: 80,
+  //espaco: 80,
+  espaco: 120,
   pares: [],
 
   atualiza() {
@@ -134,7 +137,8 @@ const canos = {
     if (passouSemFrames) {
       canos.pares.push({
         x: canvas.width,
-        y: Math.random()*220 + 35
+        //y: Math.random()*220 + 35
+        y: Math.random()*50 + 90
       })
     }
 
@@ -156,7 +160,7 @@ const canos = {
   colisaoCano(par) {
     ///   Colisão com os canos
     if ( (flappyBird.x + flappyBird.largura) >= par.x ) {     // Início do Cano
-      if (flappyBird.x <= (par.x + canos.w-5)) {              // Final do Cano
+      if (flappyBird.x <= (par.x + canos.w-2)) {              // Final do Cano
 
         if (flappyBird.y < par.y) {                           // Cano de Cima 
           return true
@@ -164,6 +168,10 @@ const canos = {
 
         if (flappyBird.y+flappyBird.altura > par.y+canos.espaco) {  // Cano  de Baixo
           return true
+        }
+
+        if (flappyBird.x >= par.x + canos.w-3){     // Passou sem colidir
+          pontuacao += 1
         }
       }
     }
@@ -315,10 +323,9 @@ function colisaoChao (flappyBird, chao) {
 // [Pontos]
 const pontos = {
   desenha(){
-    let pontos = 12
     contexto.font = "50px serif"
     contexto.fillStyle = "#000"
-    contexto.fillText(pontos, 150, 60)
+    contexto.fillText(pontuacao, 150, 60)
   }
   
 }
