@@ -199,7 +199,13 @@ const chao = {
   x: 0,
   y: canvas.height - 112,
 
-  atualiza() {    // Animação do chão andando infinito
+  atualiza() {
+    if (colisaoChao(flappyBird, chao) == true) {
+      somHit.play()
+      mudaParaTela(Telas.Final)
+      return
+    }
+    // Animação do chão andando infinito
     chao.x -= 1
     if (chao.x <= -112) {
       chao.x = 0
@@ -240,11 +246,6 @@ const flappyBird = {
   movimentoAsas: [0, 26, 52, 26],
 
   atualiza(){
-    if (colisaoChao(flappyBird, chao) == true) {
-      somHit.play()
-      mudaParaTela(Telas.Final)
-      return
-    }
     flappyBird.velocidade += this.gravidade
     flappyBird.y += flappyBird.velocidade
   },
