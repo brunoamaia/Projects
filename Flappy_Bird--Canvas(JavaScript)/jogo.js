@@ -484,6 +484,14 @@ telaDoJogo.addEventListener('click', function(){
     telaAtiva.click()
   }
 })
+
+document.addEventListener('keypress', function(e){
+  if(e.which == 32){
+    if (telaAtiva.click) {
+      telaAtiva.click()
+    }
+  }
+})
 //mudaParaTela(Telas.Inicio)    // Carregar a Tela inicial ao abrir a página 
 mudaParaTela(Telas.Inicio)
 loop();
