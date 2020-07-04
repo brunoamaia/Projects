@@ -39,7 +39,7 @@ const mensagemGetReady = {
       mensagemGetReady.x, mensagemGetReady.y,
       mensagemGetReady.w, mensagemGetReady.h
     );
-    pontuacao = 9
+    pontuacao = 0
   }
 }
 
