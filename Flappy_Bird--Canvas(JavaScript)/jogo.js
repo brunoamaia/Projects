@@ -1,5 +1,5 @@
-console.log('[DevSoutinho] Flappy Bird');
-
+//
+let telaDoJogo = window.document.querySelector('#game-canvas')
 const sprites = new Image();
 sprites.src = './src/image/sprites.png';
 
@@ -479,7 +479,7 @@ function loop() {
   requestAnimationFrame(loop);
 }
 
-window.addEventListener('click', function(){
+telaDoJogo.addEventListener('click', function(){
   if (telaAtiva.click) {
     telaAtiva.click()
   }
