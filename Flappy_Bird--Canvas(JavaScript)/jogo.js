@@ -424,47 +424,41 @@ const Telas = {
   
   Rank:{
     atualiza() {
-      console.log('Contas');
 
-      if (ranking == []) {
+      if (ranking.length == 0) {
         ranking[0] = pontuacao
         med = 0
       } else {
-        console.log('Ranking Novo Valor');
-        // Medalha
-        for (let i = ranking.length-1; i >= 0; i--) {
-          if (pontuacao >= ranking[i]) {
+        // Verificar se ganhou alguma medalha
+        for (let i = ranking.length - 1; i >= 0; i--) {
+          if (pontuacao > ranking[i]) {
             med = i
           }
         }
-
-        console.log(`Array Antigo = ${ranking}`);
+  
         ranking.push(pontuacao)     //add
-        console.log(`Novo array = ${ranking}`);
-
         // Remover valores duplicados
         for (let i = 0; i < ranking.length; i++) {
           for (let j = 0; j < ranking.length; j++) {
             if (i != j) {
-              if(ranking[i] == ranking[j]){
+              if (ranking[i] == ranking[j]) {
                 ranking.splice(i, 1)
               }
             }
           }
         }
-
-        if (ranking.length > 1) {
-          ranking.sort(function(a, b){return a-b})
-          ranking.reverse()
+        //  Ordenar os valores
+        if (ranking.length > 1) {   // Forma crescente
+          ranking.sort(function (a, b) { return a - b })
+          ranking.reverse()         //  Forma decrescente
         }
-        
-        if (ranking.length > 4){
+        //  Remover a ultima posição (menor valor)
+        if (ranking.length > 4) {
           ranking.pop()
         }
       }
+
       calc = 1
-      console.log(ranking);
-      console.log(`Medalha = ${med}`);
     },
 
     desenha(){
