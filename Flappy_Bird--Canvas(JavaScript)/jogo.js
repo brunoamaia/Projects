@@ -19,7 +19,7 @@ somPulo.src= './src/audio/pulo.wav'
 
 let frames = 0
 let pontuacao = 0
-let ranking = []
+let ranking = [0]
 
 
 // [Tela de início]
@@ -171,7 +171,7 @@ const canos = {
           return true
         }
 
-        if (flappyBird.x >= par.x + canos.w-3){     // Passou sem colidir
+        if (flappyBird.x >= par.x + canos.w-2){     // Passou sem colidir
           somPonto.play()
           pontuacao += 1
         }
@@ -330,8 +330,23 @@ const pontos = {
     contexto.font = "50px serif"
     contexto.fillStyle = "#000"
     contexto.fillText(pontuacao, x, 60)
+  },
+
+  placar() {
+    let x = 225
+    if (pontuacao > 9) {x = 215}
+    contexto.font = "28px serif"
+    contexto.fillStyle = "#000"
+    contexto.fillText(pontuacao, x, 148)
+
+    if (ranking.length == 1) {
+      ranking[0] = pontuacao
+    }
+
+    let xB = 225
+    if (ranking[0] > 9) {xB = 215}
+    contexto.fillText(ranking[0], xB, 190)
   }
-  
 }
 
 // [Telas] 
@@ -393,6 +408,7 @@ const Telas = {
       chao.desenha();
       flappyBird.desenha();
       mensagemPlacar.desenha()
+      pontos.placar()
     }
   }
 }
@@ -410,5 +426,6 @@ window.addEventListener('click', function(){
     telaAtiva.click()
   }
 })
-mudaParaTela(Telas.Inicio)    // Carregar a Tela inicial ao abrir a página 
+//mudaParaTela(Telas.Inicio)    // Carregar a Tela inicial ao abrir a página 
+mudaParaTela(Telas.Final)
 loop();
