@@ -485,13 +485,16 @@ telaDoJogo.addEventListener('click', function(){
   }
 })
 
-document.addEventListener('keypress', function(e){
-  if(e.which == 32){
+//mudaParaTela(Telas.Inicio)    // Carregar a Tela inicial ao abrir a página 
+
+document.addEventListener('keydown', keyDownHandler, false);
+function keyDownHandler(event) {
+  if(event.keyCode == 32 || event.keyCode == 38) {
     if (telaAtiva.click) {
       telaAtiva.click()
     }
   }
-})
-//mudaParaTela(Telas.Inicio)    // Carregar a Tela inicial ao abrir a página 
+}
+
 mudaParaTela(Telas.Inicio)
 loop();
