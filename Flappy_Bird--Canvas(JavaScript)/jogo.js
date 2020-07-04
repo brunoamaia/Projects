@@ -1,20 +1,20 @@
 console.log('[DevSoutinho] Flappy Bird');
 
 const sprites = new Image();
-sprites.src = './sprites.png';
+sprites.src = './src/image/sprites.png';
 
 const canvas = document.querySelector('canvas');
 const contexto = canvas.getContext('2d');
 
 //    Audios
 const somCaiu = new Audio()
-somCaiu.src = './efeitos/caiu.wav'
+somCaiu.src = './src/audio/caiu.wav'
 const somHit = new Audio()
-somHit.src= './efeitos/hit.wav'
+somHit.src= './src/audio/hit.wav'
 const somPonto = new Audio()
-somPonto.src = './efeitos/ponto.wav'
+somPonto.src = './src/audio/ponto.wav'
 const somPulo = new Audio()
-somPulo.src= './efeitos/pulo.wav'
+somPulo.src= './src/audio/pulo.wav'
 
 
 let frames = 0
@@ -39,7 +39,7 @@ const mensagemGetReady = {
       mensagemGetReady.x, mensagemGetReady.y,
       mensagemGetReady.w, mensagemGetReady.h
     );
-    pontuacao = 0
+    pontuacao = 9
   }
 }
 
@@ -130,7 +130,7 @@ const canos = {
   x: 100,
   y: 130,
   //espaco: 80,
-  espaco: 120,
+  espaco: 140,
   pares: [],
 
   atualiza() {
@@ -325,9 +325,11 @@ function colisaoChao (flappyBird, chao) {
 // [Pontos]
 const pontos = {
   desenha(){
+    let x = 150
+    if (pontuacao > 9) {x = 135}
     contexto.font = "50px serif"
     contexto.fillStyle = "#000"
-    contexto.fillText(pontuacao, 150, 60)
+    contexto.fillText(pontuacao, x, 60)
   }
   
 }
