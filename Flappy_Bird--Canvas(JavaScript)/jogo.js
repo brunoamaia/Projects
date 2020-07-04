@@ -19,7 +19,8 @@ somPulo.src= './src/audio/pulo.wav'
 
 let frames = 0
 let pontuacao = 0
-let ranking = [0]
+let ranking = []
+let calc = 0
 
 
 // [Tela de início]
@@ -146,9 +147,9 @@ const canos = {
     canos.pares.forEach(function(par){
       par.x += -2
 
-      if (canos.colisaoCano(par)) {
+      if (canos.colisaoCano(par)) {   //Colidiu com o cano
         somCaiu.play()
-        mudaParaTela(Telas.Final)
+        mudaParaTela(Telas.Rank)
       }
 
       if ( (par.x + canos.w) < 0) {   // Remove os canos que já sairan da tela 
@@ -219,7 +220,7 @@ const chao = {
   atualiza() {
     if (colisaoChao(flappyBird, chao) == true) {
       somHit.play()
-      mudaParaTela(Telas.Final)
+      mudaParaTela(Telas.Rank)
       return
     }
     // Animação do chão andando infinito
@@ -339,13 +340,10 @@ const pontos = {
     contexto.fillStyle = "#000"
     contexto.fillText(pontuacao, x, 148)
 
-    if (ranking.length == 1) {
-      ranking[0] = pontuacao
-    }
-
     let xB = 225
     if (ranking[0] > 9) {xB = 215}
     contexto.fillText(ranking[0], xB, 190)
+    //console.log(ranking);
   }
 }
 
@@ -410,6 +408,32 @@ const Telas = {
       mensagemPlacar.desenha()
       pontos.placar()
     }
+  },
+  
+  Rank:{
+    atualiza() {
+
+      if (ranking == []) {
+        ranking[0] = pontuacao
+      } else {
+        ranking.push(pontuacao)
+        ranking.sort(function(a, b){return a-b})
+        
+        if (ranking.length > 4){
+          ranking.pop()
+        }
+      }
+      calc = 1
+      console.log(ranking);
+    },
+
+    desenha(){
+      if (calc == 1) {
+        mudaParaTela(Telas.Final)
+        calc =0
+      }
+    }
+
   }
 }
 
