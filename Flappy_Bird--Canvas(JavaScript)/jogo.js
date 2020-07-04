@@ -279,7 +279,7 @@ const flappyBird = {
       flappyBird.largura, flappyBird.altura, // Tamanho do recorte na sprite
       flappyBird.x, flappyBird.y,
       flappyBird.largura, flappyBird.altura,
-    );
+    )
   },
 
   movimentaAsasFlappy() {
@@ -306,6 +306,16 @@ const flappyBird = {
   pula() {
     flappyBird.velocidade = - flappyBird.pulo
     somPulo.play()
+  },
+
+  queda() {
+    contexto.drawImage(
+      sprites,
+      flappyBird.spriteX, flappyBird.spriteY, // Sprite X, Sprite Y
+      flappyBird.largura, flappyBird.altura, // Tamanho do recorte na sprite
+      flappyBird.x, flappyBird.y,
+      flappyBird.largura, flappyBird.altura,
+    )
   },
   
   reset() {
@@ -406,7 +416,7 @@ const Telas = {
       planoDeFundo.desenha();
       canos.desenha()
       chao.desenha();
-      flappyBird.desenha();
+      flappyBird.queda();
       mensagemPlacar.desenha()
       pontos.placar()
     }
