@@ -20,7 +20,8 @@ somPulo.src= './src/audio/pulo.wav'
 let frames = 0
 let pontuacao = 0
 let ranking = []
-let calc = 0
+let calc = 0      // Garantir que o ranking foi recalculado 
+let med = 4       // Escolher medalha (0 - Ouro, 1 - Prata, 2 - Bronze, 3 - Sei lá kkkkk, 4 - Sem medalha)
 
 
 // [Tela de início]
@@ -41,6 +42,7 @@ const mensagemGetReady = {
       mensagemGetReady.w, mensagemGetReady.h
     );
     pontuacao = 0
+    med = 4
   }
 }
 
@@ -76,15 +78,15 @@ const mensagemPlacar = {
   
   medalha() {
     //console.log('Esolhe a medalha');
-    let medalha = 1
-    contexto.drawImage(   // Medalha 
-      sprites,
-      mensagemPlacar.medX[medalha], mensagemPlacar.medY[medalha],
-      mensagemPlacar.medW, mensagemPlacar.medH,
-      mensagemPlacar.MedPosX, mensagemPlacar.MedPosY,
-      mensagemPlacar.medW, mensagemPlacar.medH
-    );
-
+    if (med < 4) {
+      contexto.drawImage(   // Medalha 
+        sprites,
+        mensagemPlacar.medX[med], mensagemPlacar.medY[med],
+        mensagemPlacar.medW, mensagemPlacar.medH,
+        mensagemPlacar.MedPosX, mensagemPlacar.MedPosY,
+        mensagemPlacar.medW, mensagemPlacar.medH
+      );
+    }
   }
 }
 
@@ -412,13 +414,26 @@ const Telas = {
   
   Rank:{
     atualiza() {
+      console.log('Contas');
 
       if (ranking == []) {
         ranking[0] = pontuacao
+        med = 0
       } else {
-        ranking.push(pontuacao)     //add
+        console.log('Ranking Novo Valor');
+        // Medalha
+        for (let i = ranking.length-1; i >= 0; i--) {
+          if (pontuacao >= ranking[i]) {
+            med = i
+          }
+        }
 
-        for (let i = 0; i < ranking.length; i++) {    // Remover valores duplicados
+        console.log(`Array Antigo = ${ranking}`);
+        ranking.push(pontuacao)     //add
+        console.log(`Novo array = ${ranking}`);
+
+        // Remover valores duplicados
+        for (let i = 0; i < ranking.length; i++) {
           for (let j = 0; j < ranking.length; j++) {
             if (i != j) {
               if(ranking[i] == ranking[j]){
@@ -427,8 +442,11 @@ const Telas = {
             }
           }
         }
-        ranking.sort(function(a, b){return a-b})
-        ranking.reverse()
+
+        if (ranking.length > 1) {
+          ranking.sort(function(a, b){return a-b})
+          ranking.reverse()
+        }
         
         if (ranking.length > 4){
           ranking.pop()
@@ -436,6 +454,7 @@ const Telas = {
       }
       calc = 1
       console.log(ranking);
+      console.log(`Medalha = ${med}`);
     },
 
     desenha(){
