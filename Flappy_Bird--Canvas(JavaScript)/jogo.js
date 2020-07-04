@@ -418,6 +418,7 @@ const Telas = {
       } else {
         ranking.push(pontuacao)
         ranking.sort(function(a, b){return a-b})
+        ranking.reverse()
         
         if (ranking.length > 4){
           ranking.pop()
