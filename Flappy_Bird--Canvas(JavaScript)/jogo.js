@@ -416,7 +416,17 @@ const Telas = {
       if (ranking == []) {
         ranking[0] = pontuacao
       } else {
-        ranking.push(pontuacao)
+        ranking.push(pontuacao)     //add
+
+        for (let i = 0; i < ranking.length; i++) {    // Remover valores duplicados
+          for (let j = 0; j < ranking.length; j++) {
+            if (i != j) {
+              if(ranking[i] == ranking[j]){
+                ranking.splice(i, 1)
+              }
+            }
+          }
+        }
         ranking.sort(function(a, b){return a-b})
         ranking.reverse()
         
@@ -452,5 +462,5 @@ window.addEventListener('click', function(){
   }
 })
 //mudaParaTela(Telas.Inicio)    // Carregar a Tela inicial ao abrir a página 
-mudaParaTela(Telas.Final)
+mudaParaTela(Telas.Inicio)
 loop();
