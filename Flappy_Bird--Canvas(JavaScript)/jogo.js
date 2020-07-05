@@ -347,13 +347,29 @@ const pontos = {
 
   placar() {
     let x = 225
-    if (pontuacao > 9) {x = 215}
+    if (pontuacao < 10) {
+      x = 225
+    }else if (pontuacao > 9 && pontuacao <100 ) {
+      x = 220
+    } else if (pontuacao >= 100 && pontuacao <999 ) {
+      x = 210
+    } else {
+      x = 205
+    }
     contexto.font = "28px serif"
     contexto.fillStyle = "#000"
     contexto.fillText(pontuacao, x, 148)
 
     let xB = 225
-    if (ranking[0] > 9) {xB = 215}
+    if (ranking[0] < 10) {
+      xB = 225
+    }else if (ranking[0] > 9 && ranking[0] <100 ) {
+      xB = 220
+    } else if (ranking[0] >= 100 && ranking[0] <999 ) {
+      xB = 210
+    } else {
+      xB = 205
+    }
     contexto.fillText(ranking[0], xB, 190)
     //console.log(ranking);
   }
