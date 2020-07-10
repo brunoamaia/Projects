@@ -7,5 +7,5 @@
  
 
 <br>
-<a href="#">Será adicionada uma página</a>
+<a href="https://brunoamaia.github.io/site/pages/projects/games/flappybird/index.html">Clique aqui para ver em funcionamento</a>
  
